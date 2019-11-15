@@ -1,0 +1,175 @@
+﻿
+{% for Project in Projects -%} 
+{% for connection in Project.Connections -%} 
+{  
+      "name": "{{Project.Name}}",  
+      "id": "{{Project.Name}}
+	  {{Project.id_project}}",  
+      "compatibilityLevel": 1200,  
+      "model": {  
+        "defaultMode": "import",  
+		 
+        "dataSources": [  
+          {  
+            "name": "Connection {{Project.Name}}",  
+            "connectionString": "{{connection.connection_string}}",  
+            "impersonationMode": "impersonateServiceAccount",  
+            "annotations": [  
+              {  
+                "name": "ConnectionEditUISource",  
+                "value": "SqlServer"  
+              }  
+            ]  
+          }  
+        ],  
+        "tables": [  
+		 {% for dim in connection.Dimensions %}
+		  {% if  forloop.first %}
+		   {% else %}
+			,
+		   {% endif %}
+          {  
+            "name": "{{dim.destination_table_name}}{{dim.sufix}}",  
+            "columns": [ {% for col in dim.dim_columns%} {  
+							"name": "{{col.tabular_prefix}}{{col.source_column_name}}",  
+							"dataType": "{% if col.data_type == 'datetime' %}DateTime{% else %}{{col.data_type}}{% endif %}",  
+							"sourceColumn": "{{col.source_column_name}}",
+							"isHidden": {{col.ssas_is_hidden}}
+						  } 
+						  {% if  forloop.last %}
+						  {% else %}
+						  ,
+						  {% endif %}
+						{% endfor -%}
+						],  
+            "partitions": [  
+							  {  
+								"name": "part {{dim.destination_table_name}}",  
+								"dataView": "full",  
+								"source": {  
+								  "query": "select * From {{dim.destination_table_schema}}.{{dim.destination_table_name}} ",  
+								  "dataSource": "Connection {{Project.Name}}"  
+								}  
+							  }  
+						],
+				"hierarchies": [
+				{% for col in dim.hierarchies%}
+							  {
+								"name": "{{col.name}}",
+								"levels": [
+								{% for le in col.levels%}
+								  {
+									"name": "{{le.name}}",
+									"ordinal": {{le.ordinal}},
+									"column": "{{le.column}}"
+								  }
+								   {% if  forloop.last %}
+									  {% else %}
+									  ,
+									  {% endif %}
+									{% endfor -%}
+								]
+							  }
+					{% if  forloop.last %}
+					{% else %}
+					,
+					{% endif %}
+				{% endfor -%}
+		   ]
+
+						,"measures": [
+						 {% for measure in dim.Measures%}
+						  {
+							"name": "{{measure.name}}",
+							"expression": "{{measure.calculation}}",
+							"formatString": "{{measure.format_string}}",
+							"displayFolder":"{{measure.display_folder}}"
+						  }
+						  {% if  forloop.last %}
+						  {% else %}
+						  ,
+						  {% endif %}
+						  {% endfor -%}
+						 ]
+			}
+				{% endfor -%}
+			   {% for dim in connection.Calculated_dimensions %}
+			   ,
+			  {
+				"name": "{{dim.destination_table_name}}{{dim.sufix}}",
+				"columns": [{% for col in dim.dim_columns%}
+					{	
+						"type": "calculatedTableColumn",
+						"name": "{{col.tabular_prefix}}{{col.source_column_name}}",
+						"dataType": "{% if col.data_type == 'datetime' %}DateTime {% else %}{{col.data_type}}{% endif %}",
+						"isNameInferred": true,
+						"isDataTypeInferred": true,
+						"sourceColumn": "{{dim.originaltable}}[{{col.tabular_prefix}}{{col.source_column_name}}]"
+					  }
+					   {% if  forloop.last %}
+						  {% else %}
+						  ,
+						  {% endif %}
+						{% endfor -%}
+
+						],
+				"partitions": [
+				  {
+					"name": "part {{dim.destination_table_name}}",
+					"source": {
+					  "type": "calculated",
+					  "expression": "CALCULATETABLE('{{dim.originaltable}}')"
+					}
+				  }
+					]
+					,
+				"hierarchies": [
+				{% for col in dim.hierarchies%}
+							  {
+								"name": "{{col.name}}",
+								"levels": [
+								{% for le in col.levels%}
+								  {
+									"name": "{{le.name}}",
+									"ordinal": {{le.ordinal}},
+									"column": "{{le.column}}"
+								  }
+								   {% if  forloop.last %}
+									  {% else %}
+									  ,
+									  {% endif %}
+									{% endfor -%}
+								]
+							  }
+					{% if  forloop.last %}
+					{% else %}
+					,
+					{% endif %}
+				{% endfor -%}
+		   ]
+
+				}
+				{% endfor -%}
+		]
+	
+	
+		, "relationships": [
+			  {% for relation in connection.relations %}
+		  		   {
+					"name": "{{relation.name}}",
+					"fromTable": "{{relation.from_table}}",
+					"fromColumn": "{{relation.from_column}}",
+					"toTable": "{{relation.to_table}}",
+					"toColumn": "{{relation.to_column}}",
+					"isActive": {{relation.is_active }}
+				    }
+						{% if  forloop.last %}
+						  {% else %}
+						  ,
+						  {% endif %}
+			{% endfor%}
+			]
+          } 
+		  {% endfor -%}
+		} 
+{% endfor -%}

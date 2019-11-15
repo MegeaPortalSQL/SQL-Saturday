@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Database Doc</title>
+
+    <script src="jquery.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="font-awesome.min.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .nav-side-menu {
+            overflow: auto;
+            font-family: verdana;
+            font-size: 12px;
+            font-weight: 200;
+            background-color: #2e353d;
+            position: fixed;
+            top: 0px;
+            width: 300px;
+            height: 100%;
+            color: #e1ffff;
+        }
+
+            .nav-side-menu .brand {
+                background-color: #23282e;
+                line-height: 50px;
+                display: block;
+                text-align: center;
+                font-size: 14px;
+            }
+
+            .nav-side-menu .toggle-btn {
+                display: none;
+            }
+
+            .nav-side-menu ul,
+            .nav-side-menu li {
+                list-style: none;
+                padding: 0px;
+                margin: 0px;
+                line-height: 35px;
+                cursor: pointer;
+                /*
+            .collapsed{
+               .arrow:before{
+                         font-family: FontAwesome;
+                         content: "\f053";
+                         display: inline-block;
+                         padding-left:10px;
+                         padding-right: 10px;
+                         vertical-align: middle;
+                         float:right;
+                    }
+             }
+        */
+            }
+
+                .nav-side-menu ul :not(collapsed) .arrow:before,
+                .nav-side-menu li :not(collapsed) .arrow:before {
+                    font-family: FontAwesome;
+                    content: "\f078";
+                    display: inline-block;
+                    padding-left: 10px;
+                    padding-right: 10px;
+                    vertical-align: middle;
+                    float: right;
+                }
+
+                .nav-side-menu ul .active,
+                .nav-side-menu li .active {
+                    border-left: 3px solid #d19b3d;
+                    background-color: #4f5b69;
+                }
+
+                .nav-side-menu ul .sub-menu li.active,
+                .nav-side-menu li .sub-menu li.active {
+                    color: #d19b3d;
+                }
+
+                    .nav-side-menu ul .sub-menu li.active a,
+                    .nav-side-menu li .sub-menu li.active a {
+                        color: #d19b3d;
+                    }
+
+                .nav-side-menu ul .sub-menu li,
+                .nav-side-menu li .sub-menu li {
+                    background-color: #181c20;
+                    border: none;
+                    line-height: 28px;
+                    border-bottom: 1px solid #23282e;
+                    margin-left: 0px;
+                }
+
+                    .nav-side-menu ul .sub-menu li:hover,
+                    .nav-side-menu li .sub-menu li:hover {
+                        background-color: #020203;
+                    }
+
+                    .nav-side-menu ul .sub-menu li:before,
+                    .nav-side-menu li .sub-menu li:before {
+                        font-family: FontAwesome;
+                        content: "\f105";
+                        display: inline-block;
+                        padding-left: 10px;
+                        padding-right: 10px;
+                        vertical-align: middle;
+                    }
+
+            .nav-side-menu li {
+                padding-left: 0px;
+                border-left: 3px solid #2e353d;
+                border-bottom: 1px solid #23282e;
+            }
+
+                .nav-side-menu li a {
+                    text-decoration: none;
+                    color: #e1ffff;
+                }
+
+                    .nav-side-menu li a i {
+                        padding-left: 10px;
+                        width: 20px;
+                        padding-right: 20px;
+                    }
+
+                .nav-side-menu li:hover {
+                    border-left: 3px solid #d19b3d;
+                    background-color: #4f5b69;
+                    -webkit-transition: all 1s ease;
+                    -moz-transition: all 1s ease;
+                    -o-transition: all 1s ease;
+                    -ms-transition: all 1s ease;
+                    transition: all 1s ease;
+                }
+
+        @media (max-width: 767px) {
+            .nav-side-menu {
+                position: relative;
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+                .nav-side-menu .toggle-btn {
+                    display: block;
+                    cursor: pointer;
+                    position: absolute;
+                    right: 10px;
+                    top: 10px;
+                    z-index: 10 !important;
+                    padding: 3px;
+                    background-color: #ffffff;
+                    color: #000;
+                    width: 40px;
+                    text-align: center;
+                }
+
+            .brand {
+                text-align: left !important;
+                font-size: 22px;
+                padding-left: 20px;
+                line-height: 50px !important;
+            }
+        }
+
+        @media (min-width: 767px) {
+            .nav-side-menu .menu-list .menu-content {
+                display: block;
+            }
+
+            #main {
+                width: calc(100% - 300px);
+                float: right;
+            }
+        }
+
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+         .modal-body {
+                max-height:400px; 
+                 overflow-y: auto;
+            }
+        pre{
+            max-height: 300px;
+        }
+    </style>
+    <script>
+        function itemClick(element) {
+            $('.tab').hide();
+            $('#tab' + element).show();
+            $('.nav-side-menu li').removeClass('active');
+            $('#' + element).addClass('active');
+            if ($('.toggle-btn').css('display') != 'none') {
+                $('.toggle-btn').click()
+            }
+
+        }
+        $(document).ready(function () {
+          $('.tab').hide();
+          var table = location.search.split('table=')[1];
+          if (typeof table != 'undefined') {
+          //If the url has the table parameter
+              itemClick(table);
+          }else {
+              var view = location.search.split('view=')[1];
+              if (typeof view != 'undefined') {
+                  //If the url has the view parameter
+                  itemClick(view);
+              } else {
+                $('#tabinfo').show();
+              }
+          }
+
+        });
+    </script>
+</head>
+
+<body>
+    <div class="nav-side-menu">
+        <div class="brand">Database Doc</div>
+        <i class="fa fa-navicon fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+        <div class="menu-list">
+            <ul id="menu-content" class="menu-content collapse out">
+                <li id="info" onclick="itemClick(this.id)">
+                    <a href="#"><i class="fa fa-database fa-lg"></i> Info </a>
+                </li>
+                <li data-toggle="collapse" data-target="#totaltables" class="collapsed">
+                    <a href="#"><i class="fa fa-table fa-lg"></i>Tablas<span class="arrow"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="totaltables">
+                    
+                    
+                </ul>
+                <li data-toggle="collapse" data-target="#totalviews" class="collapsed">
+                    <a href="#"><i class="fa fa-eye fa-lg"></i>Vistas<span class="arrow"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="totalviews">
+                    
+                    
+                </ul>
+
+            </ul>
+        </div>
+    </div>
+    <div class="container" id="main">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="page-content-wrapper">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="tab-content">
+                                    <div class="panel-group tab" id="tabinfo">
+                                        <h3>ABA_LOG</h3>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseDBInfo">DB Info</a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseDBInfo" class="panel-collapse collapse in">
+                                                <div class="panel-body">
+                                                    <table class="table table-bordered">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Name</th>
+                                                                <th>Size</th>
+                                                                <th>Owner</th>
+                                                                <th>id</th>
+                                                                <th>Created</th>
+                                                                <th>Status</th>
+                                                                <th>Compatibility level</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>ABA_LOG</td>
+                                                                <td>    300.00 MB</td>
+                                                                <td>sa</td>
+                                                                <td>19</td>
+                                                                <td>Sep 30 2019</td>
+                                                                <td>Status=ONLINE, Updateability=READ_WRITE, UserAccess=MULTI_USER, Recovery=SIMPLE, Version=869, Collation=SQL_Latin1_General_CP1_CI_AS, SQLSortOrder=52, IsAutoCreateStatistics, IsAutoUpdateStatistics, IsFullTextEnabled</td>
+                                                                <td>140</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--DB FILES-->
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseDBFiles">Files</a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseDBFiles" class="panel-collapse collapse in">
+                                                <div class="panel-body">
+                                                    <table class="table table-bordered">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Name</th>
+                                                                <th>id</th>
+                                                                <th>filename</th>
+                                                                <th>filegroup</th>
+                                                                <th>size</th>
+                                                                <th>maxsize</th>
+                                                                <th>growth</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            
+                                                            <tr>
+                                                                <td>ABA_LOG_sys</td>
+                                                                <td>1</td>
+                                                                <td>D:\SQLData\ABA_LOG_sys.mdf</td>
+                                                                <td>PRIMARY</td>
+                                                                <td>102400 KB</td>
+                                                                <td>Unlimited</td>
+                                                                <td>0 KB</td>
+                                                            </tr>
+                                                            
+                                                            <tr>
+                                                                <td>ABA_LOG_log</td>
+                                                                <td>2</td>
+                                                                <td>D:\SQLData\ABA_LOG_log.ldf</td>
+                                                                <td></td>
+                                                                <td>102400 KB</td>
+                                                                <td>2147483648 KB</td>
+                                                                <td>102400 KB</td>
+                                                            </tr>
+                                                            
+                                                            <tr>
+                                                                <td>ABA_LOG_data</td>
+                                                                <td>3</td>
+                                                                <td>D:\SQLData\ABA_LOG_data.ndf</td>
+                                                                <td>SECONDARY</td>
+                                                                <td>102400 KB</td>
+                                                                <td>Unlimited</td>
+                                                                <td>102400 KB</td>
+                                                            </tr>
+                                                            
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+
+</html>

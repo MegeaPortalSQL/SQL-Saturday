@@ -1,0 +1,98 @@
+{  
+   
+   "TestName":"by year",
+   "Category":"Test de Negocio",
+   "OnError":4,
+   "OnSuccess":0,
+   "ImplementationStates":1,
+   "AbaFrameworkLogDbConnectionString":"Data Source=MEGEASOLIDQ\\MSSQLSERVER01;Initial Catalog=NAV_LOG;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;",
+   "Source":"data source=localhost;initial catalog=Adventure Works;provider=SQLNCLI11.1;integrated security=SSPI;auto translate=False;",
+   "CommandTimeOut":0,
+   "Destination":"data source=localhost;initial catalog=Adventure Works;provider=SQLNCLI11.1;integrated security=SSPI;auto translate=False;",
+   "SourceScript":"select year(orderdate) anio,sum(TotalDue) Totaldue from Sales.SalesOrderHeader where SalesOrderID!=53425 group by year(orderdate) order by 1",
+   "DestinationScript":"select year(orderdate) anio,sum(TotalDue) Totaldue from Sales.SalesOrderHeader where SalesOrderID!=43667 group by year(orderdate) order by 1",
+   "TestType":"Integrated",
+   "ToleranceMatrix":"0,0.01",
+   "ExternalReference":null,
+   "PerformanceTarget":0,
+   "CascadeParametersOnError":"true",
+   "KeyColumnsNumber":1,
+   "MaxDifferences":0,
+   "DependentTests":[     
+   {  
+   
+   "TestName":"by Month",
+   "Category":null,
+   "OnError":4,
+   "OnSuccess":1,
+   "ImplementationStates":1,
+   "AbaFrameworkLogDbConnectionString":"Data Source=MEGEASOLIDQ\\MSSQLSERVER01;Initial Catalog=NAV_LOG;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;",
+   "Source":"data source=localhost;initial catalog=Adventure Works;provider=SQLNCLI11.1;integrated security=SSPI;auto translate=False;",
+   "CommandTimeOut":0,
+   "Destination":"data source=localhost;initial catalog=Adventure Works;provider=SQLNCLI11.1;integrated security=SSPI;auto translate=False;",
+   "SourceScript":"select year(orderdate) anio,month(orderdate) mes ,sum(TotalDue) Totaldue from Sales.SalesOrderHeader where SalesOrderID!=53425 and year(OrderDate)=$anio$ group by year(orderdate),month(orderdate)  order by 1",
+   "DestinationScript":"select year(orderdate) anio,month(orderdate) mes ,sum(TotalDue) Totaldue from Sales.SalesOrderHeader where SalesOrderID!=43667 and  year(OrderDate)=$anio$ group by year(orderdate),month(orderdate)  order by 1",
+   "TestType":null,
+   "KeyColumnsNumber":2,
+   "ToleranceMatrix":"0,0.01",
+   "ExternalReference":null,
+   "PerformanceTarget":0,	
+   "MaxDifferences":0,
+   "CascadeParametersOnError":"true",
+   "DependentTests":[  
+   {  
+   
+   "TestName":"by date ",
+   "Category":null,
+   "OnError":4,
+   "OnSuccess":1,
+   "ImplementationStates":1,
+   "AbaFrameworkLogDbConnectionString":"Data Source=MEGEASOLIDQ\\MSSQLSERVER01;Initial Catalog=NAV_LOG;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;",
+   "Source":"data source=localhost;initial catalog=Adventure Works;provider=SQLNCLI11.1;integrated security=SSPI;auto translate=False;",
+   "CommandTimeOut":0,
+   "KeyColumnsNumber":3,
+   "Destination":"data source=localhost;initial catalog=Adventure Works;provider=SQLNCLI11.1;integrated security=SSPI;auto translate=False;",
+   "SourceScript":"select year(orderdate) anio,month(orderdate) mes, convert(varchar(10),orderdate,112) orderdate ,sum(TotalDue) Totaldue from Sales.SalesOrderHeader where SalesOrderID!=53425 and year(OrderDate)=$anio$ and month(orderdate)=$mes$ group by year(orderdate),month(orderdate),orderdate  order by 1",
+   "DestinationScript":"select year(orderdate) anio,month(orderdate) mes,convert(varchar(10),orderdate,112) orderdate ,sum(TotalDue) Totaldue from Sales.SalesOrderHeader where SalesOrderID!=43667 and  year(OrderDate)=$anio$  and month(orderdate)=$mes$   group by year(orderdate),month(orderdate),orderdate  order by 1",
+   "TestType":null,
+   "ToleranceMatrix":"0,0.01",
+   "ExternalReference":null,
+   "PerformanceTarget":0,
+   "CascadeParametersOnError":"true",
+   "MaxDifferences":1000,
+   "DependentTests":[   
+     {  
+   
+   "TestName":"by key",
+   "Category":null,
+   "OnError":4,
+    "OnErrorStoreProcedureCall":
+		{"ConnectionString":"data source=MEGEASOLIDQ\\MSSQLSERVER01;Initial Catalog=NAV_LOG;provider=SQLNCLI11.1;integrated security=SSPI;auto translate=False;",
+		 "StoreProcedure":"exec OrderDateErrors ?"
+		},
+   "OnSuccess":1,
+   "ImplementationStates":1,
+   "AbaFrameworkLogDbConnectionString":"Data Source=MEGEASOLIDQ\\MSSQLSERVER01;Initial Catalog=NAV_LOG;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;",
+   "Source":"data source=localhost;initial catalog=Adventure Works;provider=SQLNCLI11.1;integrated security=SSPI;auto translate=False;",
+   "CommandTimeOut":0,
+   "Destination":"data source=localhost;initial catalog=Adventure Works;provider=SQLNCLI11.1;integrated security=SSPI;auto translate=False;",
+   "SourceScript":" select SalesOrderID, [RevisionNumber],[OnlineOrderFlag], CustomerID, OrderDate,DueDate,[SalesOrderNumber],[AccountNumber],[CreditCardApprovalCode],[PurchaseOrderNumber],CASE    WHEN SalesOrderID = 53425    THEN [TotalDue] + 100    ELSE TotalDue END AS TotalDue     FROM Sales.SalesOrderHeader WHERE orderdate=cast('$orderdate$' as datetime) order by 1",
+   "DestinationScript":" select SalesOrderID, [RevisionNumber],[OnlineOrderFlag], CustomerID, OrderDate,DueDate,[SalesOrderNumber],[AccountNumber],[CreditCardApprovalCode],[PurchaseOrderNumber],TotalDue        FROM Sales.SalesOrderHeader WHERE   SalesOrderID!=43667 and orderdate=cast('$orderdate$' as datetime) order by 1",
+   "TestType":null,
+   "ToleranceMatrix":"0,0.01",
+   "ExternalReference":null,
+   "PerformanceTarget":0,
+   "CascadeParametersOnError":"true",
+   "MaxDifferences":0,
+   "DependentTests":[   
+   
+   ]
+}
+   
+   ]
+}   
+   
+   ]
+}
+   ]
+}

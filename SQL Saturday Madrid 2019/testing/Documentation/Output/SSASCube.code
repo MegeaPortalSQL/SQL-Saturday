@@ -1,0 +1,1028 @@
+
+
+
+{  
+      "name": "advw",  
+      "id": "advw
+	  1",  
+      "compatibilityLevel": 1200,  
+      "model": {  
+        "defaultMode": "import",  
+		 
+        "dataSources": [  
+          {  
+            "name": "Connection advw",  
+            "connectionString": "Data Source=localhost;Initial Catalog=ABA_DWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;",  
+            "impersonationMode": "impersonateServiceAccount",  
+            "annotations": [  
+              {  
+                "name": "ConnectionEditUISource",  
+                "value": "SqlServer"  
+              }  
+            ]  
+          }  
+        ],  
+        "tables": [  
+		 
+		  
+		   
+          {  
+            "name": "fecha",  
+            "columns": [  {  
+							"name": "sk_fecha",  
+							"dataType": "Int64",  
+							"sourceColumn": "sk_fecha",
+							"isHidden": true
+						  } 
+						  
+						  ,
+						  
+						 {  
+							"name": "idFecha",  
+							"dataType": "DateTime",  
+							"sourceColumn": "idFecha",
+							"isHidden": false
+						  } 
+						  
+						  ,
+						  
+						 {  
+							"name": "DaynumberofMonth",  
+							"dataType": "Int64",  
+							"sourceColumn": "DaynumberofMonth",
+							"isHidden": false
+						  } 
+						  
+						  ,
+						  
+						 {  
+							"name": "Montkey",  
+							"dataType": "Int64",  
+							"sourceColumn": "Montkey",
+							"isHidden": false
+						  } 
+						  
+						  ,
+						  
+						 {  
+							"name": "YearId",  
+							"dataType": "Int64",  
+							"sourceColumn": "YearId",
+							"isHidden": false
+						  } 
+						  
+						  ,
+						  
+						 {  
+							"name": "Mont",  
+							"dataType": "string",  
+							"sourceColumn": "Mont",
+							"isHidden": false
+						  } 
+						  
+						  
+												],  
+            "partitions": [  
+							  {  
+								"name": "part fecha",  
+								"dataView": "full",  
+								"source": {  
+								  "query": "select * From dim.fecha ",  
+								  "dataSource": "Connection advw"  
+								}  
+							  }  
+						],
+				"hierarchies": [
+						   ]
+
+						,"measures": [
+						 						 ]
+			}
+				
+		  
+			,
+		   
+          {  
+            "name": "cliente",  
+            "columns": [  {  
+							"name": "sk_cliente",  
+							"dataType": "Int64",  
+							"sourceColumn": "sk_cliente",
+							"isHidden": true
+						  } 
+						  
+						  ,
+						  
+						 {  
+							"name": "idCliente",  
+							"dataType": "Int64",  
+							"sourceColumn": "idCliente",
+							"isHidden": false
+						  } 
+						  
+						  ,
+						  
+						 {  
+							"name": "Nombre",  
+							"dataType": "string",  
+							"sourceColumn": "Nombre",
+							"isHidden": false
+						  } 
+						  
+						  ,
+						  
+						 {  
+							"name": "Cuenta",  
+							"dataType": "string",  
+							"sourceColumn": "Cuenta",
+							"isHidden": false
+						  } 
+						  
+						  
+												],  
+            "partitions": [  
+							  {  
+								"name": "part cliente",  
+								"dataView": "full",  
+								"source": {  
+								  "query": "select * From dim.cliente ",  
+								  "dataSource": "Connection advw"  
+								}  
+							  }  
+						],
+				"hierarchies": [
+						   ]
+
+						,"measures": [
+						 						 ]
+			}
+				
+		  
+			,
+		   
+          {  
+            "name": "Producto",  
+            "columns": [  {  
+							"name": "sk_Producto",  
+							"dataType": "Int64",  
+							"sourceColumn": "sk_Producto",
+							"isHidden": true
+						  } 
+						  
+						  ,
+						  
+						 {  
+							"name": "idProducto",  
+							"dataType": "Int64",  
+							"sourceColumn": "idProducto",
+							"isHidden": false
+						  } 
+						  
+						  ,
+						  
+						 {  
+							"name": "Categoria",  
+							"dataType": "string",  
+							"sourceColumn": "Categoria",
+							"isHidden": false
+						  } 
+						  
+						  ,
+						  
+						 {  
+							"name": "Color",  
+							"dataType": "string",  
+							"sourceColumn": "Color",
+							"isHidden": false
+						  } 
+						  
+						  ,
+						  
+						 {  
+							"name": "NumeroProducto",  
+							"dataType": "string",  
+							"sourceColumn": "NumeroProducto",
+							"isHidden": false
+						  } 
+						  
+						  ,
+						  
+						 {  
+							"name": "Producto",  
+							"dataType": "string",  
+							"sourceColumn": "Producto",
+							"isHidden": false
+						  } 
+						  
+						  ,
+						  
+						 {  
+							"name": "Subcategoria",  
+							"dataType": "string",  
+							"sourceColumn": "Subcategoria",
+							"isHidden": false
+						  } 
+						  
+						  
+												],  
+            "partitions": [  
+							  {  
+								"name": "part Producto",  
+								"dataView": "full",  
+								"source": {  
+								  "query": "select * From dim.Producto ",  
+								  "dataSource": "Connection advw"  
+								}  
+							  }  
+						],
+				"hierarchies": [
+						   ]
+
+						,"measures": [
+						 						 ]
+			}
+				
+		  
+			,
+		   
+          {  
+            "name": "ventas",  
+            "columns": [  {  
+							"name": "sk_ventas",  
+							"dataType": "Int64",  
+							"sourceColumn": "sk_ventas",
+							"isHidden": true
+						  } 
+						  
+						  ,
+						  
+						 {  
+							"name": "id_rp_FechaEntrega_Fecha",  
+							"dataType": "DateTime",  
+							"sourceColumn": "id_rp_FechaEntrega_Fecha",
+							"isHidden": true
+						  } 
+						  
+						  ,
+						  
+						 {  
+							"name": "id_rp_FechaEnvio_Fecha",  
+							"dataType": "DateTime",  
+							"sourceColumn": "id_rp_FechaEnvio_Fecha",
+							"isHidden": true
+						  } 
+						  
+						  ,
+						  
+						 {  
+							"name": "id_rp_FechaPedido_Fecha",  
+							"dataType": "DateTime",  
+							"sourceColumn": "id_rp_FechaPedido_Fecha",
+							"isHidden": true
+						  } 
+						  
+						  ,
+						  
+						 {  
+							"name": "idCliente",  
+							"dataType": "Int64",  
+							"sourceColumn": "idCliente",
+							"isHidden": true
+						  } 
+						  
+						  ,
+						  
+						 {  
+							"name": "IdProducto",  
+							"dataType": "Int64",  
+							"sourceColumn": "IdProducto",
+							"isHidden": true
+						  } 
+						  
+						  ,
+						  
+						 {  
+							"name": "idVentas",  
+							"dataType": "Int64",  
+							"sourceColumn": "idVentas",
+							"isHidden": true
+						  } 
+						  
+						  ,
+						  
+						 {  
+							"name": "UnitPrice",  
+							"dataType": "decimal",  
+							"sourceColumn": "UnitPrice",
+							"isHidden": false
+						  } 
+						  
+						  ,
+						  
+						 {  
+							"name": "LineTotal",  
+							"dataType": "decimal",  
+							"sourceColumn": "LineTotal",
+							"isHidden": false
+						  } 
+						  
+						  ,
+						  
+						 {  
+							"name": "NumeroVenta",  
+							"dataType": "string",  
+							"sourceColumn": "NumeroVenta",
+							"isHidden": false
+						  } 
+						  
+						  ,
+						  
+						 {  
+							"name": "OrderQty",  
+							"dataType": "Int64",  
+							"sourceColumn": "OrderQty",
+							"isHidden": false
+						  } 
+						  
+						  ,
+						  
+						 {  
+							"name": "id_sk_FechaEntrega",  
+							"dataType": "Int64",  
+							"sourceColumn": "id_sk_FechaEntrega",
+							"isHidden": true
+						  } 
+						  
+						  ,
+						  
+						 {  
+							"name": "id_sk_FechaEnvio",  
+							"dataType": "Int64",  
+							"sourceColumn": "id_sk_FechaEnvio",
+							"isHidden": true
+						  } 
+						  
+						  ,
+						  
+						 {  
+							"name": "id_sk_FechaPedido",  
+							"dataType": "Int64",  
+							"sourceColumn": "id_sk_FechaPedido",
+							"isHidden": true
+						  } 
+						  
+						  ,
+						  
+						 {  
+							"name": "id_sk_cliente",  
+							"dataType": "Int64",  
+							"sourceColumn": "id_sk_cliente",
+							"isHidden": true
+						  } 
+						  
+						  ,
+						  
+						 {  
+							"name": "id_sk_Producto",  
+							"dataType": "Int64",  
+							"sourceColumn": "id_sk_Producto",
+							"isHidden": true
+						  } 
+						  
+						  
+												],  
+            "partitions": [  
+							  {  
+								"name": "part ventas",  
+								"dataView": "full",  
+								"source": {  
+								  "query": "select * From fact.ventas ",  
+								  "dataSource": "Connection advw"  
+								}  
+							  }  
+						],
+				"hierarchies": [
+						   ]
+
+						,"measures": [
+						 
+						  {
+							"name": "AnualAgg LineTotal (ventas)",
+							"expression": "if(isblank([Sum UnitPrice (ventas)]),blank(),totalytd([Sum UnitPrice (ventas)],[],all([])))",
+							"formatString": "#,0.00;-#,0.00;#,0.00",
+							"displayFolder":"Time Agg"
+						  }
+						  
+						  ,
+						  
+						  
+						  {
+							"name": "AnualAggPreviousYear LineTotal (ventas)",
+							"expression": "if(isblank([PreviousYear UnitPrice (ventas)]),blank(),totalytd([PreviousYear UnitPrice (ventas)],[],all([])))",
+							"formatString": "#,0.00;-#,0.00;#,0.00",
+							"displayFolder":"Time Calc"
+						  }
+						  
+						  ,
+						  
+						  
+						  {
+							"name": "Count LineTotal (ventas)",
+							"expression": "COUNT([LineTotal]) ",
+							"formatString": "#,0;-#,0;#,0",
+							"displayFolder":""
+						  }
+						  
+						  ,
+						  
+						  
+						  {
+							"name": "max LineTotal (ventas)",
+							"expression": "max([LineTotal]) ",
+							"formatString": "#,0.00;-#,0.00;#,0.00",
+							"displayFolder":""
+						  }
+						  
+						  ,
+						  
+						  
+						  {
+							"name": "min LineTotal (ventas)",
+							"expression": "min([LineTotal]) ",
+							"formatString": "#,0.00;-#,0.00;#,0.00",
+							"displayFolder":""
+						  }
+						  
+						  ,
+						  
+						  
+						  {
+							"name": "MonthAgg LineTotal (ventas)",
+							"expression": "if(isblank([Sum UnitPrice (ventas)]),blank(),totalmtd([Sum UnitPrice (ventas)],[],all([])))",
+							"formatString": "#,0.00;-#,0.00;#,0.00",
+							"displayFolder":"Time Agg"
+						  }
+						  
+						  ,
+						  
+						  
+						  {
+							"name": "MonthAggPreviousYear LineTotal (ventas)",
+							"expression": "if(isblank([PreviousYear UnitPrice (ventas)]),blank(),totalmtd([PreviousYear UnitPrice (ventas)],[],all([])))",
+							"formatString": "#,0.00;-#,0.00;#,0.00",
+							"displayFolder":"Time Calc"
+						  }
+						  
+						  ,
+						  
+						  
+						  {
+							"name": "PreviousYear LineTotal (ventas)",
+							"expression": "if(isblank([Sum UnitPrice (ventas)]),blank(),calculate([Sum UnitPrice (ventas)],dateadd([],-1,year)))",
+							"formatString": "#,0.00;-#,0.00;#,0.00",
+							"displayFolder":"Time Calc"
+						  }
+						  
+						  ,
+						  
+						  
+						  {
+							"name": "PreviousYearClose LineTotal (ventas)",
+							"expression": "calculate([Sum UnitPrice (ventas)],previousyear([]))",
+							"formatString": "#,0.00;-#,0.00;#,0.00",
+							"displayFolder":"Snapshot"
+						  }
+						  
+						  ,
+						  
+						  
+						  {
+							"name": "QuarterAgg LineTotal (ventas)",
+							"expression": "if(isblank([Sum UnitPrice (ventas)]),blank(),totalqtd([Sum UnitPrice (ventas)],[],all([])))",
+							"formatString": "#,0.00;-#,0.00;#,0.00",
+							"displayFolder":"Time Agg"
+						  }
+						  
+						  ,
+						  
+						  
+						  {
+							"name": "QuarterAggPreviousYear LineTotal (ventas)",
+							"expression": "if(isblank([PreviousYear UnitPrice (ventas)]),blank(),totalqtd([PreviousYear UnitPrice (ventas)],[],all([])))",
+							"formatString": "#,0.00;-#,0.00;#,0.00",
+							"displayFolder":"Time Calc"
+						  }
+						  
+						  ,
+						  
+						  
+						  {
+							"name": "SemiadditiveAverage LineTotal (ventas)",
+							"expression": "([Sum UnitPrice (ventas)]) / calculate(countrows())",
+							"formatString": "#,0.00;-#,0.00;#,0.00",
+							"displayFolder":""
+						  }
+						  
+						  ,
+						  
+						  
+						  {
+							"name": "SemiadditiveSum LineTotal (ventas)",
+							"expression": "calculate([Sum UnitPrice (ventas)],lastnonblank([],calculate([Sum UnitPrice (ventas)])))",
+							"formatString": "#,0.00;-#,0.00;#,0.00",
+							"displayFolder":""
+						  }
+						  
+						  ,
+						  
+						  
+						  {
+							"name": "Sum LineTotal (ventas)",
+							"expression": "SUM([LineTotal]) ",
+							"formatString": "#,0.00;-#,0.00;#,0.00",
+							"displayFolder":""
+						  }
+						  
+						  ,
+						  
+						  
+						  {
+							"name": "AnualAgg UnitPrice (ventas)",
+							"expression": "if(isblank([Sum UnitPrice (ventas)]),blank(),totalytd([Sum UnitPrice (ventas)],[],all([])))",
+							"formatString": "#,0.00;-#,0.00;#,0.00",
+							"displayFolder":"Time Agg"
+						  }
+						  
+						  ,
+						  
+						  
+						  {
+							"name": "AnualAggPreviousYear UnitPrice (ventas)",
+							"expression": "if(isblank([PreviousYear UnitPrice (ventas)]),blank(),totalytd([PreviousYear UnitPrice (ventas)],[],all([])))",
+							"formatString": "#,0.00;-#,0.00;#,0.00",
+							"displayFolder":"Time Calc"
+						  }
+						  
+						  ,
+						  
+						  
+						  {
+							"name": "Count UnitPrice (ventas)",
+							"expression": "COUNT([UnitPrice]) ",
+							"formatString": "#,0;-#,0;#,0",
+							"displayFolder":""
+						  }
+						  
+						  ,
+						  
+						  
+						  {
+							"name": "max UnitPrice (ventas)",
+							"expression": "max([UnitPrice]) ",
+							"formatString": "#,0.00;-#,0.00;#,0.00",
+							"displayFolder":""
+						  }
+						  
+						  ,
+						  
+						  
+						  {
+							"name": "min UnitPrice (ventas)",
+							"expression": "min([UnitPrice]) ",
+							"formatString": "#,0.00;-#,0.00;#,0.00",
+							"displayFolder":""
+						  }
+						  
+						  ,
+						  
+						  
+						  {
+							"name": "MonthAgg UnitPrice (ventas)",
+							"expression": "if(isblank([Sum UnitPrice (ventas)]),blank(),totalmtd([Sum UnitPrice (ventas)],[],all([])))",
+							"formatString": "#,0.00;-#,0.00;#,0.00",
+							"displayFolder":"Time Agg"
+						  }
+						  
+						  ,
+						  
+						  
+						  {
+							"name": "MonthAggPreviousYear UnitPrice (ventas)",
+							"expression": "if(isblank([PreviousYear UnitPrice (ventas)]),blank(),totalmtd([PreviousYear UnitPrice (ventas)],[],all([])))",
+							"formatString": "#,0.00;-#,0.00;#,0.00",
+							"displayFolder":"Time Calc"
+						  }
+						  
+						  ,
+						  
+						  
+						  {
+							"name": "PreviousYear UnitPrice (ventas)",
+							"expression": "if(isblank([Sum UnitPrice (ventas)]),blank(),calculate([Sum UnitPrice (ventas)],dateadd([],-1,year)))",
+							"formatString": "#,0.00;-#,0.00;#,0.00",
+							"displayFolder":"Time Calc"
+						  }
+						  
+						  ,
+						  
+						  
+						  {
+							"name": "PreviousYearClose UnitPrice (ventas)",
+							"expression": "calculate([Sum UnitPrice (ventas)],previousyear([]))",
+							"formatString": "#,0.00;-#,0.00;#,0.00",
+							"displayFolder":"Snapshot"
+						  }
+						  
+						  ,
+						  
+						  
+						  {
+							"name": "QuarterAgg UnitPrice (ventas)",
+							"expression": "if(isblank([Sum UnitPrice (ventas)]),blank(),totalqtd([Sum UnitPrice (ventas)],[],all([])))",
+							"formatString": "#,0.00;-#,0.00;#,0.00",
+							"displayFolder":"Time Agg"
+						  }
+						  
+						  ,
+						  
+						  
+						  {
+							"name": "QuarterAggPreviousYear UnitPrice (ventas)",
+							"expression": "if(isblank([PreviousYear UnitPrice (ventas)]),blank(),totalqtd([PreviousYear UnitPrice (ventas)],[],all([])))",
+							"formatString": "#,0.00;-#,0.00;#,0.00",
+							"displayFolder":"Time Calc"
+						  }
+						  
+						  ,
+						  
+						  
+						  {
+							"name": "SemiadditiveAverage UnitPrice (ventas)",
+							"expression": "([Sum UnitPrice (ventas)]) / calculate(countrows())",
+							"formatString": "#,0.00;-#,0.00;#,0.00",
+							"displayFolder":""
+						  }
+						  
+						  ,
+						  
+						  
+						  {
+							"name": "SemiadditiveSum UnitPrice (ventas)",
+							"expression": "calculate([Sum UnitPrice (ventas)],lastnonblank([],calculate([Sum UnitPrice (ventas)])))",
+							"formatString": "#,0.00;-#,0.00;#,0.00",
+							"displayFolder":""
+						  }
+						  
+						  ,
+						  
+						  
+						  {
+							"name": "Sum UnitPrice (ventas)",
+							"expression": "SUM([UnitPrice]) ",
+							"formatString": "#,0.00;-#,0.00;#,0.00",
+							"displayFolder":""
+						  }
+						  
+						  
+						  						 ]
+			}
+							   
+			   ,
+			  {
+				"name": "FechaEntrega",
+				"columns": [
+					{	
+						"type": "calculatedTableColumn",
+						"name": "sk_fecha",
+						"dataType": "Int64",
+						"isNameInferred": true,
+						"isDataTypeInferred": true,
+						"sourceColumn": "fecha[sk_fecha]"
+					  }
+					   
+						  ,
+						  
+						
+					{	
+						"type": "calculatedTableColumn",
+						"name": "idFecha",
+						"dataType": "DateTime ",
+						"isNameInferred": true,
+						"isDataTypeInferred": true,
+						"sourceColumn": "fecha[idFecha]"
+					  }
+					   
+						  ,
+						  
+						
+					{	
+						"type": "calculatedTableColumn",
+						"name": "DaynumberofMonth",
+						"dataType": "Int64",
+						"isNameInferred": true,
+						"isDataTypeInferred": true,
+						"sourceColumn": "fecha[DaynumberofMonth]"
+					  }
+					   
+						  ,
+						  
+						
+					{	
+						"type": "calculatedTableColumn",
+						"name": "Montkey",
+						"dataType": "Int64",
+						"isNameInferred": true,
+						"isDataTypeInferred": true,
+						"sourceColumn": "fecha[Montkey]"
+					  }
+					   
+						  ,
+						  
+						
+					{	
+						"type": "calculatedTableColumn",
+						"name": "YearId",
+						"dataType": "Int64",
+						"isNameInferred": true,
+						"isDataTypeInferred": true,
+						"sourceColumn": "fecha[YearId]"
+					  }
+					   
+						  ,
+						  
+						
+					{	
+						"type": "calculatedTableColumn",
+						"name": "Mont",
+						"dataType": "string",
+						"isNameInferred": true,
+						"isDataTypeInferred": true,
+						"sourceColumn": "fecha[Mont]"
+					  }
+					   
+						  
+						
+						],
+				"partitions": [
+				  {
+					"name": "part FechaEntrega",
+					"source": {
+					  "type": "calculated",
+					  "expression": "CALCULATETABLE('fecha')"
+					}
+				  }
+					]
+					,
+				"hierarchies": [
+						   ]
+
+				}
+				
+			   ,
+			  {
+				"name": "FechaEnvio",
+				"columns": [
+					{	
+						"type": "calculatedTableColumn",
+						"name": "sk_fecha",
+						"dataType": "Int64",
+						"isNameInferred": true,
+						"isDataTypeInferred": true,
+						"sourceColumn": "fecha[sk_fecha]"
+					  }
+					   
+						  ,
+						  
+						
+					{	
+						"type": "calculatedTableColumn",
+						"name": "idFecha",
+						"dataType": "DateTime ",
+						"isNameInferred": true,
+						"isDataTypeInferred": true,
+						"sourceColumn": "fecha[idFecha]"
+					  }
+					   
+						  ,
+						  
+						
+					{	
+						"type": "calculatedTableColumn",
+						"name": "DaynumberofMonth",
+						"dataType": "Int64",
+						"isNameInferred": true,
+						"isDataTypeInferred": true,
+						"sourceColumn": "fecha[DaynumberofMonth]"
+					  }
+					   
+						  ,
+						  
+						
+					{	
+						"type": "calculatedTableColumn",
+						"name": "Montkey",
+						"dataType": "Int64",
+						"isNameInferred": true,
+						"isDataTypeInferred": true,
+						"sourceColumn": "fecha[Montkey]"
+					  }
+					   
+						  ,
+						  
+						
+					{	
+						"type": "calculatedTableColumn",
+						"name": "YearId",
+						"dataType": "Int64",
+						"isNameInferred": true,
+						"isDataTypeInferred": true,
+						"sourceColumn": "fecha[YearId]"
+					  }
+					   
+						  ,
+						  
+						
+					{	
+						"type": "calculatedTableColumn",
+						"name": "Mont",
+						"dataType": "string",
+						"isNameInferred": true,
+						"isDataTypeInferred": true,
+						"sourceColumn": "fecha[Mont]"
+					  }
+					   
+						  
+						
+						],
+				"partitions": [
+				  {
+					"name": "part FechaEnvio",
+					"source": {
+					  "type": "calculated",
+					  "expression": "CALCULATETABLE('fecha')"
+					}
+				  }
+					]
+					,
+				"hierarchies": [
+						   ]
+
+				}
+				
+			   ,
+			  {
+				"name": "FechaPedido",
+				"columns": [
+					{	
+						"type": "calculatedTableColumn",
+						"name": "sk_fecha",
+						"dataType": "Int64",
+						"isNameInferred": true,
+						"isDataTypeInferred": true,
+						"sourceColumn": "fecha[sk_fecha]"
+					  }
+					   
+						  ,
+						  
+						
+					{	
+						"type": "calculatedTableColumn",
+						"name": "idFecha",
+						"dataType": "DateTime ",
+						"isNameInferred": true,
+						"isDataTypeInferred": true,
+						"sourceColumn": "fecha[idFecha]"
+					  }
+					   
+						  ,
+						  
+						
+					{	
+						"type": "calculatedTableColumn",
+						"name": "DaynumberofMonth",
+						"dataType": "Int64",
+						"isNameInferred": true,
+						"isDataTypeInferred": true,
+						"sourceColumn": "fecha[DaynumberofMonth]"
+					  }
+					   
+						  ,
+						  
+						
+					{	
+						"type": "calculatedTableColumn",
+						"name": "Montkey",
+						"dataType": "Int64",
+						"isNameInferred": true,
+						"isDataTypeInferred": true,
+						"sourceColumn": "fecha[Montkey]"
+					  }
+					   
+						  ,
+						  
+						
+					{	
+						"type": "calculatedTableColumn",
+						"name": "YearId",
+						"dataType": "Int64",
+						"isNameInferred": true,
+						"isDataTypeInferred": true,
+						"sourceColumn": "fecha[YearId]"
+					  }
+					   
+						  ,
+						  
+						
+					{	
+						"type": "calculatedTableColumn",
+						"name": "Mont",
+						"dataType": "string",
+						"isNameInferred": true,
+						"isDataTypeInferred": true,
+						"sourceColumn": "fecha[Mont]"
+					  }
+					   
+						  
+						
+						],
+				"partitions": [
+				  {
+					"name": "part FechaPedido",
+					"source": {
+					  "type": "calculated",
+					  "expression": "CALCULATETABLE('fecha')"
+					}
+				  }
+					]
+					,
+				"hierarchies": [
+						   ]
+
+				}
+						]
+	
+	
+		, "relationships": [
+			  
+		  		   {
+					"name": "940517b2-383e-46f0-88b0-5a2313325c16",
+					"fromTable": "ventas",
+					"fromColumn": "id_sk_FechaEntrega",
+					"toTable": "FechaEntrega",
+					"toColumn": "sk_fecha",
+					"isActive": true
+				    }
+						
+						  ,
+						  
+			
+		  		   {
+					"name": "f8cb8a14-fb66-4899-b196-897312c0d2f8",
+					"fromTable": "ventas",
+					"fromColumn": "id_sk_FechaEnvio",
+					"toTable": "FechaEnvio",
+					"toColumn": "sk_fecha",
+					"isActive": true
+				    }
+						
+						  ,
+						  
+			
+		  		   {
+					"name": "5ddca843-38ee-4956-8351-8e52f0051721",
+					"fromTable": "ventas",
+					"fromColumn": "id_sk_FechaPedido",
+					"toTable": "FechaPedido",
+					"toColumn": "sk_fecha",
+					"isActive": true
+				    }
+						
+						  ,
+						  
+			
+		  		   {
+					"name": "70c8c26a-48a6-4160-8649-98764d6777df",
+					"fromTable": "ventas",
+					"fromColumn": "id_sk_cliente",
+					"toTable": "cliente",
+					"toColumn": "sk_cliente",
+					"isActive": true
+				    }
+						
+						  ,
+						  
+			
+		  		   {
+					"name": "2522bec1-c010-4e46-835e-1c53f925c4e1",
+					"fromTable": "ventas",
+					"fromColumn": "id_sk_Producto",
+					"toTable": "Producto",
+					"toColumn": "sk_Producto",
+					"isActive": true
+				    }
+						
+						  
+			
+			]
+          } 
+		  		} 

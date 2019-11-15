@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>ABI Framework Doc</title>
+    
+    <script src="jquery.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="font-awesome.min.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+    </style>
+    <script>
+
+        $(document).ready(function () {
+
+        });
+
+        function showTests(numtest) {
+            var table = document.getElementById('table-tests');
+            var opcion = document.getElementById('dropdownMenu1');
+            opcion.innerHTML = numtest;
+            if (numtest != 'todos' && numtest != 'errores') {
+                numtest = parseInt(numtest);
+                //numtest = numtest + 1;
+                var n = table.rows.length - numtest;
+                for (var j = n; j < table.rows.length; j++) {
+                    if (table.rows[j].style.display = 'none')
+                        table.rows[j].style.display = '';
+                }
+
+                // Recorremos todas las filas y ocultamos las que no queremos
+                for (var i = 1; i < n; i++) {
+                    table.rows[i].style.display = 'none';
+                }
+            }
+            else {
+                if (numtest == 'todos') {
+                    // Recorremos todas las filas y las mostramos todas
+                    for (var i = 1; i < table.rows.length; i++) {
+                        //cellsOfRow = table.rows[i].getElementsByTagName('td');
+                        table.rows[i].style.display = '';
+                    }
+                }
+                else if (numtest == 'errores') {
+                    var searchText = 'Error';
+                    for (var i = 1; i < table.rows.length; i++) {
+                        var cellsOfRow = table.rows[i].getElementsByTagName('td');
+                        var found = false;
+                        for (var j = 0; j < cellsOfRow.length && !found; j++) {
+                            var compareWith = cellsOfRow[j].innerHTML;
+                            if (searchText.length == 0 || compareWith == searchText) {
+                                found = true;
+                            }
+                        }
+                        if (found) {
+                            table.rows[i].style.display = '';
+                        } else {
+                            table.rows[i].style.display = 'none';
+                        }
+                    }
+                }
+
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-inverse">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">ABI Framework Last Test Execution</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                </ul>
+            
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    
+    <div class="container" id="main">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="page-content-wrapper">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="tab-content">
+                                    
+                                    <div class="tab" id="tabhome">
+
+                                        {% if error_test > 0 %}
+                                            <h2 style="text-align:center;"><b>{{message}}</b></h2>
+                                            <p  style="text-align:center;">Se han encontrado {{error_test}} errores.</p>
+                                        {% endif -%}
+
+                                        {% if error_test == 0 %}
+                                            <h2  style="text-align:center;"><b>{{message}}</b></h2>
+                                            <p style="text-align:center;">La ejecución finalizó sin errores.</p>
+                                        {% endif -%}
+                                        <hr />
+                                        <div class="dropdown">
+                                            <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                Num Tests
+                                                <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" id="menu-dropdown">
+                                                <li><a href="#" onclick="showTests('1')">1</a></li>
+                                                <li><a href="#" onclick="showTests('5')">5</a></li>
+                                                <li><a href="#" onclick="showTests('10')">10</a></li>
+                                                <li><a href="#" onclick="showTests('20')">20</a></li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="#" onclick="showTests('todos')">Todos</a></li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="#" onclick="showTests('errores')">Errores</a></li>
+                                            </ul>
+                                        </div>
+                                        <table class="table table-striped" id="table-tests">
+                                            <thead>
+                                                <tr>
+                                                    <th>test_name</th>
+                                                    <th>source_schema</th>
+                                                    <th>source_table_name</th>
+                                                    <th>status</th>
+                                                    <th>execution_date</th>
+                                                    <th>executed</th>
+                                                    <th>message</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for exec in last_execution_tests -%}
+                                                <tr>
+                                                    <td>{{exec.test_name}}</td>
+                                                    <td>{{exec.source_schema}}</td>
+                                                    <td>{{exec.source_table_name}}</td>
+                                                    <td>{{exec.current_error_status_desc}}</td>
+                                                    <td>{{exec.execution_date}}</td>
+                                                    <td>{{exec.executed}}</td>
+                                                    {% if exec.current_error_status_desc == 'Error' %}
+                                                    <td><button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{exec.test_name | remove: " " | remove: "."}}">See message</button></td>
+                                                    {% else %}
+                                                    <td></td>
+                                                    {% endif %}
+                                                </tr>
+                                                {% endfor -%}
+                                            </tbody>
+                                        </table>
+
+                                        <br /><hr /><br />
+                                    </div>
+
+                                    {% for test in last_execution_tests -%}
+                                        {% if test.current_error_status_desc == 'Error' %}
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="{{test.test_name | remove: " " | remove: "."}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                        <h4 class="modal-title" id="myModalLabel">Error messages</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        {% for test_error_message in test.etl_test_result_messages -%}
+                                                            <pre>{{test_error_message.message_information}}</pre>
+                                                        {% endfor -%}
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% endif %}
+                                    {% endfor -%}
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

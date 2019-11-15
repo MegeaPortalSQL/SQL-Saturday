@@ -1,0 +1,85 @@
+﻿{"connections":
+	[  {% for connection in Connections -%} 
+			{% if  forloop.first %}{% else %},{% endif %}
+      {"ConnectionName":"{{connection.Name}}",
+        "ConnectionString":"{{connection.connection_string}}"
+      } 
+     {% endfor -%}
+	],
+"Test":[
+{% for tables in extract_phase_info_objects -%}
+  
+  {% for tests in tables.tests_extract_phase_info -%}
+  {% if tests.Test_Type_ID == 'PK ' and tables.load_pattern_id != 'NAV' %}
+  {
+    "TestName": "{{tables.Destination_Table_Name}} {{tests.Test_Type_ID}} Count",
+    "Category": "Unit Test",
+    "AbaFrameworkLogDbConnectionString": "$LOG$",
+    "OnError": 4,
+    "OnSuccess": 0,
+    "ImplementationStates": 1,
+    "Source": "${{tables.Helper_Name}}$",
+    "CommandTimeOut": 0,
+    "Destination": "${{tables.Staging_Name}}$",
+    "SourceScript": " SELECT '[{{tables.Destination_table_schema}}].[{{tables.Destination_Table_Name}}]' TableName, count(*) [# rows] FROM [{{tables.Source_Object_schema}}].[{{tables.Source_Object_Name}}] {% if tests.Where_Condition  != blank %} WHERE {{tests.Where_Condition }} {% endif -%} ",
+    "DestinationScript": "SELECT '[{{tables.Destination_table_schema}}].[{{tables.Destination_Table_Name}}]' as TableName, count(*) [# rows] FROM [{{tables.Destination_table_schema}}].[{{tables.Destination_Table_Name}}] {% if tests.Where_Condition  != blank %} WHERE {{tests.Where_Condition }} {% endif -%} ",
+    "TestType": "COUNT",
+    "ToleranceMatrix": "",
+    "ExternalReference": "{{tables.i_d_project}}#{{tables.Source_Object_schema}}#{{tables.Source_Object_Name}}",
+    "PerformanceTarget": 0,
+    "CascadeParametersOnError": "False",
+    "MaxDifferences": 0,
+    "DependentTests": [
+
+      {
+        "TestName": "{{tables.Destination_Table_Name}} {{tests.Test_Type_ID}} Details",
+        "Category": "Unit Test Dependent",
+        "AbaFrameworkLogDbConnectionString": "$LOG$",
+        "OnError": 4,
+        "OnSuccess": 0,
+        "ImplementationStates": 1,
+        "Source": "${{tables.Helper_Name}}$",
+        "CommandTimeOut": 0,
+        "Destination": "${{tables.Staging_Name}}$",
+        "SourceScript": " SELECT  * FROM [{{tables.Source_Object_schema}}].[{{tables.Source_Object_Name}}] {% if tests.Where_Condition  != blank %} WHERE {{tests.Where_Condition }} {% endif -%} ORDER BY {{ tables.primary_key_columns_for_testing }}",
+        "DestinationScript": "SELECT * FROM [{{tables.Destination_table_schema}}].[{{tables.Destination_Table_Name}}] {% if tests.Where_Condition  != blank %} WHERE {{tests.Where_Condition }} {% endif -%} ORDER BY {{ tables.primary_key_columns_for_testing }}",
+        "TestType": "Primary Key",
+        "ToleranceMatrix": "",
+        "ExternalReference": "{{tables.i_d_project}}#{{tables.Source_Object_schema}}#{{tables.Source_Object_Name}}",
+        "PerformanceTarget": 0,
+        "CascadeParametersOnError": "False",
+        "MaxDifferences": 0,
+        "DependentTests": []
+      }
+    ]
+  },
+
+  {% elsif tests.Test_Type_ID == 'PK ' and tables.load_pattern_id == 'NAV' %}
+  {
+    "TestName": "{{tables.Destination_Table_Name}} {{tests.Test_Type_ID}} Count",
+    "Category": "Unit Test",
+    "AbaFrameworkLogDbConnectionString": "$LOG$",
+    "OnError": 4,
+    "OnSuccess": 0,
+    "ImplementationStates": 1,
+    "Source": "${{tables.Helper_Name}}$",
+    "CommandTimeOut": 0,
+    "Destination": "${{tables.Staging_Name}}$",
+    "SourceScript": " SELECT '[{{tables.Destination_table_schema}}].[{{tables.Destination_Table_Name}}]' TableName, ({{tables.navision_count}}) [# rows] ",
+    "DestinationScript": "SELECT '[{{tables.Destination_table_schema}}].[{{tables.Destination_Table_Name}}]' as TableName, count(*) [# rows] FROM [{{tables.Destination_table_schema}}].[{{tables.Destination_Table_Name}}] ",
+    "TestType": "COUNT",
+    "ToleranceMatrix": "",
+    "ExternalReference": "{{tables.i_d_project}}#{{tables.Source_Object_schema}}#{{tables.Source_Object_Name}}",
+    "PerformanceTarget": 0,
+    "CascadeParametersOnError": "False",
+    "MaxDifferences": 0,
+    "DependentTests": [
+    ]
+  },
+	
+	{% endif -%}
+	{% endfor -%}
+{% endfor -%}
+{}
+]
+}

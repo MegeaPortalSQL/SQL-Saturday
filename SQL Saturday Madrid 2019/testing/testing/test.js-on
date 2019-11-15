@@ -1,0 +1,3726 @@
+{"connections":
+	[  
+			
+      {"ConnectionName":"AUX",
+        "ConnectionString":"Data Source=localhost;Initial Catalog=ABA2017_AUX;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;"
+      } 
+     
+			,
+      {"ConnectionName":"DWH",
+        "ConnectionString":"Data Source=localhost;Initial Catalog=ABA2017_DWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;"
+      } 
+     
+			,
+      {"ConnectionName":"HLP-1",
+        "ConnectionString":"Provider=SQLNCLI11.1;Data Source=localhost;Initial Catalog=ABA2017_HLP;Integrated Security=SSPI;Auto Translate=False;"
+      } 
+     
+			,
+      {"ConnectionName":"LOG",
+        "ConnectionString":"Data Source=localhost;Initial Catalog=ABA2017_LOG;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;"
+      } 
+     
+			,
+      {"ConnectionName":"MNT",
+        "ConnectionString":"Data Source=localhost;Initial Catalog=ABA2017_MNT;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;"
+      } 
+     
+			,
+      {"ConnectionName":"STG-1",
+        "ConnectionString":"Data Source=localhost;Initial Catalog=ABA2017_STG;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;"
+      } 
+     	],
+"Test":[
+  
+    	  
+		{     
+		   "TestName":"Address PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[Address]' TableName, count(*) [# rows] FROM [bi].[Address] ",
+		   "DestinationScript":"SELECT '[STG].[Address]' as TableName, count(*) [# rows] FROM [STG].[Address] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#Address",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"Address PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[Address] ORDER BY pkAddressID",
+		   "DestinationScript":"SELECT * FROM [STG].[Address] ORDER BY pkAddressID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#Address",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"AddressType PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[AddressType]' TableName, count(*) [# rows] FROM [bi].[AddressType] ",
+		   "DestinationScript":"SELECT '[STG].[AddressType]' as TableName, count(*) [# rows] FROM [STG].[AddressType] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#AddressType",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"AddressType PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[AddressType] ORDER BY pkAddressTypeID",
+		   "DestinationScript":"SELECT * FROM [STG].[AddressType] ORDER BY pkAddressTypeID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#AddressType",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"AWBuildVersion PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[AWBuildVersion]' TableName, count(*) [# rows] FROM [bi].[AWBuildVersion] ",
+		   "DestinationScript":"SELECT '[STG].[AWBuildVersion]' as TableName, count(*) [# rows] FROM [STG].[AWBuildVersion] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#AWBuildVersion",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"AWBuildVersion PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[AWBuildVersion] ORDER BY pkSystemInformationID",
+		   "DestinationScript":"SELECT * FROM [STG].[AWBuildVersion] ORDER BY pkSystemInformationID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#AWBuildVersion",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"BillOfMaterials PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[BillOfMaterials]' TableName, count(*) [# rows] FROM [bi].[BillOfMaterials] ",
+		   "DestinationScript":"SELECT '[STG].[BillOfMaterials]' as TableName, count(*) [# rows] FROM [STG].[BillOfMaterials] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#BillOfMaterials",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"BillOfMaterials PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[BillOfMaterials] ORDER BY pkBillOfMaterialsID",
+		   "DestinationScript":"SELECT * FROM [STG].[BillOfMaterials] ORDER BY pkBillOfMaterialsID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#BillOfMaterials",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"BusinessEntity PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[BusinessEntity]' TableName, count(*) [# rows] FROM [bi].[BusinessEntity] ",
+		   "DestinationScript":"SELECT '[STG].[BusinessEntity]' as TableName, count(*) [# rows] FROM [STG].[BusinessEntity] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#BusinessEntity",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"BusinessEntity PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[BusinessEntity] ORDER BY pkBusinessEntityID",
+		   "DestinationScript":"SELECT * FROM [STG].[BusinessEntity] ORDER BY pkBusinessEntityID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#BusinessEntity",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"BusinessEntityAddress PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[BusinessEntityAddress]' TableName, count(*) [# rows] FROM [bi].[BusinessEntityAddress] ",
+		   "DestinationScript":"SELECT '[STG].[BusinessEntityAddress]' as TableName, count(*) [# rows] FROM [STG].[BusinessEntityAddress] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#BusinessEntityAddress",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"BusinessEntityAddress PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[BusinessEntityAddress] ORDER BY cast(pkAddressID as nvarchar(20)) +'-'+ cast(pkAddressTypeID as nvarchar(20)) +'-'+ cast(pkBusinessEntityID as nvarchar(20)) +'-'",
+		   "DestinationScript":"SELECT * FROM [STG].[BusinessEntityAddress] ORDER BY cast(pkAddressID as nvarchar(20)) +'-'+ cast(pkAddressTypeID as nvarchar(20)) +'-'+ cast(pkBusinessEntityID as nvarchar(20)) +'-'",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#BusinessEntityAddress",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"BusinessEntityContact PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[BusinessEntityContact]' TableName, count(*) [# rows] FROM [bi].[BusinessEntityContact] ",
+		   "DestinationScript":"SELECT '[STG].[BusinessEntityContact]' as TableName, count(*) [# rows] FROM [STG].[BusinessEntityContact] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#BusinessEntityContact",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"BusinessEntityContact PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[BusinessEntityContact] ORDER BY cast(pkBusinessEntityID as nvarchar(20)) +'-'+ cast(pkContactTypeID as nvarchar(20)) +'-'+ cast(pkPersonID as nvarchar(20)) +'-'",
+		   "DestinationScript":"SELECT * FROM [STG].[BusinessEntityContact] ORDER BY cast(pkBusinessEntityID as nvarchar(20)) +'-'+ cast(pkContactTypeID as nvarchar(20)) +'-'+ cast(pkPersonID as nvarchar(20)) +'-'",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#BusinessEntityContact",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"ContactType PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[ContactType]' TableName, count(*) [# rows] FROM [bi].[ContactType] ",
+		   "DestinationScript":"SELECT '[STG].[ContactType]' as TableName, count(*) [# rows] FROM [STG].[ContactType] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#ContactType",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"ContactType PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[ContactType] ORDER BY pkContactTypeID",
+		   "DestinationScript":"SELECT * FROM [STG].[ContactType] ORDER BY pkContactTypeID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#ContactType",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"CountryRegion PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[CountryRegion]' TableName, count(*) [# rows] FROM [bi].[CountryRegion] ",
+		   "DestinationScript":"SELECT '[STG].[CountryRegion]' as TableName, count(*) [# rows] FROM [STG].[CountryRegion] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#CountryRegion",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"CountryRegion PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[CountryRegion] ORDER BY pkCountryRegionCode",
+		   "DestinationScript":"SELECT * FROM [STG].[CountryRegion] ORDER BY pkCountryRegionCode",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#CountryRegion",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"CountryRegionCurrency PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[CountryRegionCurrency]' TableName, count(*) [# rows] FROM [bi].[CountryRegionCurrency] ",
+		   "DestinationScript":"SELECT '[STG].[CountryRegionCurrency]' as TableName, count(*) [# rows] FROM [STG].[CountryRegionCurrency] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#CountryRegionCurrency",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"CountryRegionCurrency PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[CountryRegionCurrency] ORDER BY cast(pkCountryRegionCode as nvarchar(20)) +'-'+ cast(pkCurrencyCode as nvarchar(20)) +'-'",
+		   "DestinationScript":"SELECT * FROM [STG].[CountryRegionCurrency] ORDER BY cast(pkCountryRegionCode as nvarchar(20)) +'-'+ cast(pkCurrencyCode as nvarchar(20)) +'-'",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#CountryRegionCurrency",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"CreditCard PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[CreditCard]' TableName, count(*) [# rows] FROM [bi].[CreditCard] ",
+		   "DestinationScript":"SELECT '[STG].[CreditCard]' as TableName, count(*) [# rows] FROM [STG].[CreditCard] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#CreditCard",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"CreditCard PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[CreditCard] ORDER BY pkCreditCardID",
+		   "DestinationScript":"SELECT * FROM [STG].[CreditCard] ORDER BY pkCreditCardID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#CreditCard",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"Culture PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[Culture]' TableName, count(*) [# rows] FROM [bi].[Culture] ",
+		   "DestinationScript":"SELECT '[STG].[Culture]' as TableName, count(*) [# rows] FROM [STG].[Culture] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#Culture",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"Culture PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[Culture] ORDER BY pkCultureID",
+		   "DestinationScript":"SELECT * FROM [STG].[Culture] ORDER BY pkCultureID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#Culture",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"Currency PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[Currency]' TableName, count(*) [# rows] FROM [bi].[Currency] ",
+		   "DestinationScript":"SELECT '[STG].[Currency]' as TableName, count(*) [# rows] FROM [STG].[Currency] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#Currency",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"Currency PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[Currency] ORDER BY pkCurrencyCode",
+		   "DestinationScript":"SELECT * FROM [STG].[Currency] ORDER BY pkCurrencyCode",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#Currency",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"CurrencyRate PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[CurrencyRate]' TableName, count(*) [# rows] FROM [bi].[CurrencyRate] ",
+		   "DestinationScript":"SELECT '[STG].[CurrencyRate]' as TableName, count(*) [# rows] FROM [STG].[CurrencyRate] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#CurrencyRate",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"CurrencyRate PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[CurrencyRate] ORDER BY pkCurrencyRateID",
+		   "DestinationScript":"SELECT * FROM [STG].[CurrencyRate] ORDER BY pkCurrencyRateID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#CurrencyRate",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"Customer PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[Customer]' TableName, count(*) [# rows] FROM [bi].[Customer] ",
+		   "DestinationScript":"SELECT '[STG].[Customer]' as TableName, count(*) [# rows] FROM [STG].[Customer] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#Customer",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"Customer PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[Customer] ORDER BY pkCustomerID",
+		   "DestinationScript":"SELECT * FROM [STG].[Customer] ORDER BY pkCustomerID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#Customer",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"DatabaseLog PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[DatabaseLog]' TableName, count(*) [# rows] FROM [bi].[DatabaseLog] ",
+		   "DestinationScript":"SELECT '[STG].[DatabaseLog]' as TableName, count(*) [# rows] FROM [STG].[DatabaseLog] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#DatabaseLog",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"DatabaseLog PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[DatabaseLog] ORDER BY pkDatabaseLogID",
+		   "DestinationScript":"SELECT * FROM [STG].[DatabaseLog] ORDER BY pkDatabaseLogID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#DatabaseLog",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"Department PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[Department]' TableName, count(*) [# rows] FROM [bi].[Department] ",
+		   "DestinationScript":"SELECT '[STG].[Department]' as TableName, count(*) [# rows] FROM [STG].[Department] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#Department",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"Department PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[Department] ORDER BY pkDepartmentID",
+		   "DestinationScript":"SELECT * FROM [STG].[Department] ORDER BY pkDepartmentID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#Department",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"dimCliente PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[dimCliente]' TableName, count(*) [# rows] FROM [dbo].[dimCliente] ",
+		   "DestinationScript":"SELECT '[STG].[dimCliente]' as TableName, count(*) [# rows] FROM [STG].[dimCliente] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#dbo#dimCliente",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"dimCliente PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [dbo].[dimCliente] ORDER BY ClienteKey",
+		   "DestinationScript":"SELECT * FROM [STG].[dimCliente] ORDER BY ClienteKey",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#dbo#dimCliente",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"dimcustomer PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[dimcustomer]' TableName, count(*) [# rows] FROM [dbo].[dimcustomer] ",
+		   "DestinationScript":"SELECT '[STG].[dimcustomer]' as TableName, count(*) [# rows] FROM [STG].[dimcustomer] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#dbo#dimcustomer",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"dimcustomer PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [dbo].[dimcustomer] ORDER BY CustomerKey",
+		   "DestinationScript":"SELECT * FROM [STG].[dimcustomer] ORDER BY CustomerKey",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#dbo#dimcustomer",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"EmailAddress PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[EmailAddress]' TableName, count(*) [# rows] FROM [bi].[EmailAddress] ",
+		   "DestinationScript":"SELECT '[STG].[EmailAddress]' as TableName, count(*) [# rows] FROM [STG].[EmailAddress] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#EmailAddress",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"EmailAddress PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[EmailAddress] ORDER BY cast(pkBusinessEntityID as nvarchar(20)) +'-'+ cast(pkEmailAddressID as nvarchar(20)) +'-'",
+		   "DestinationScript":"SELECT * FROM [STG].[EmailAddress] ORDER BY cast(pkBusinessEntityID as nvarchar(20)) +'-'+ cast(pkEmailAddressID as nvarchar(20)) +'-'",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#EmailAddress",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"Employee PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[Employee]' TableName, count(*) [# rows] FROM [bi].[Employee] ",
+		   "DestinationScript":"SELECT '[STG].[Employee]' as TableName, count(*) [# rows] FROM [STG].[Employee] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#Employee",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"Employee PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[Employee] ORDER BY pkBusinessEntityID",
+		   "DestinationScript":"SELECT * FROM [STG].[Employee] ORDER BY pkBusinessEntityID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#Employee",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"EmployeeDepartmentHistory PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[EmployeeDepartmentHistory]' TableName, count(*) [# rows] FROM [bi].[EmployeeDepartmentHistory] ",
+		   "DestinationScript":"SELECT '[STG].[EmployeeDepartmentHistory]' as TableName, count(*) [# rows] FROM [STG].[EmployeeDepartmentHistory] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#EmployeeDepartmentHistory",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"EmployeeDepartmentHistory PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[EmployeeDepartmentHistory] ORDER BY cast(pkBusinessEntityID as nvarchar(20)) +'-'+ cast(pkDepartmentID as nvarchar(20)) +'-'+ cast(pkShiftID as nvarchar(20)) +'-'+ cast(pkStartDate as nvarchar(20)) +'-'",
+		   "DestinationScript":"SELECT * FROM [STG].[EmployeeDepartmentHistory] ORDER BY cast(pkBusinessEntityID as nvarchar(20)) +'-'+ cast(pkDepartmentID as nvarchar(20)) +'-'+ cast(pkShiftID as nvarchar(20)) +'-'+ cast(pkStartDate as nvarchar(20)) +'-'",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#EmployeeDepartmentHistory",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"EmployeePayHistory PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[EmployeePayHistory]' TableName, count(*) [# rows] FROM [bi].[EmployeePayHistory] ",
+		   "DestinationScript":"SELECT '[STG].[EmployeePayHistory]' as TableName, count(*) [# rows] FROM [STG].[EmployeePayHistory] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#EmployeePayHistory",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"EmployeePayHistory PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[EmployeePayHistory] ORDER BY cast(pkBusinessEntityID as nvarchar(20)) +'-'+ cast(pkRateChangeDate as nvarchar(20)) +'-'",
+		   "DestinationScript":"SELECT * FROM [STG].[EmployeePayHistory] ORDER BY cast(pkBusinessEntityID as nvarchar(20)) +'-'+ cast(pkRateChangeDate as nvarchar(20)) +'-'",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#EmployeePayHistory",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"ErrorLog PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[ErrorLog]' TableName, count(*) [# rows] FROM [bi].[ErrorLog] ",
+		   "DestinationScript":"SELECT '[STG].[ErrorLog]' as TableName, count(*) [# rows] FROM [STG].[ErrorLog] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#ErrorLog",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"ErrorLog PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[ErrorLog] ORDER BY pkErrorLogID",
+		   "DestinationScript":"SELECT * FROM [STG].[ErrorLog] ORDER BY pkErrorLogID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#ErrorLog",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"Illustration PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[Illustration]' TableName, count(*) [# rows] FROM [bi].[Illustration] ",
+		   "DestinationScript":"SELECT '[STG].[Illustration]' as TableName, count(*) [# rows] FROM [STG].[Illustration] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#Illustration",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"Illustration PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[Illustration] ORDER BY pkIllustrationID",
+		   "DestinationScript":"SELECT * FROM [STG].[Illustration] ORDER BY pkIllustrationID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#Illustration",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"JobCandidate PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[JobCandidate]' TableName, count(*) [# rows] FROM [bi].[JobCandidate] ",
+		   "DestinationScript":"SELECT '[STG].[JobCandidate]' as TableName, count(*) [# rows] FROM [STG].[JobCandidate] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#JobCandidate",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"JobCandidate PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[JobCandidate] ORDER BY pkJobCandidateID",
+		   "DestinationScript":"SELECT * FROM [STG].[JobCandidate] ORDER BY pkJobCandidateID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#JobCandidate",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"Location PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[Location]' TableName, count(*) [# rows] FROM [bi].[Location] ",
+		   "DestinationScript":"SELECT '[STG].[Location]' as TableName, count(*) [# rows] FROM [STG].[Location] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#Location",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"Location PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[Location] ORDER BY pkLocationID",
+		   "DestinationScript":"SELECT * FROM [STG].[Location] ORDER BY pkLocationID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#Location",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"OrderTracking PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[OrderTracking]' TableName, count(*) [# rows] FROM [bi].[OrderTracking] ",
+		   "DestinationScript":"SELECT '[STG].[OrderTracking]' as TableName, count(*) [# rows] FROM [STG].[OrderTracking] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#OrderTracking",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"OrderTracking PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[OrderTracking] ORDER BY pkOrderTrackingID",
+		   "DestinationScript":"SELECT * FROM [STG].[OrderTracking] ORDER BY pkOrderTrackingID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#OrderTracking",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"Password PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[Password]' TableName, count(*) [# rows] FROM [bi].[Password] ",
+		   "DestinationScript":"SELECT '[STG].[Password]' as TableName, count(*) [# rows] FROM [STG].[Password] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#Password",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"Password PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[Password] ORDER BY pkBusinessEntityID",
+		   "DestinationScript":"SELECT * FROM [STG].[Password] ORDER BY pkBusinessEntityID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#Password",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"Person PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[Person]' TableName, count(*) [# rows] FROM [bi].[Person] ",
+		   "DestinationScript":"SELECT '[STG].[Person]' as TableName, count(*) [# rows] FROM [STG].[Person] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#Person",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"Person PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[Person] ORDER BY pkBusinessEntityID",
+		   "DestinationScript":"SELECT * FROM [STG].[Person] ORDER BY pkBusinessEntityID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#Person",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"Person_json PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[Person_json]' TableName, count(*) [# rows] FROM [bi].[Person_json] ",
+		   "DestinationScript":"SELECT '[STG].[Person_json]' as TableName, count(*) [# rows] FROM [STG].[Person_json] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#Person_json",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"Person_json PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[Person_json] ORDER BY pkPersonID",
+		   "DestinationScript":"SELECT * FROM [STG].[Person_json] ORDER BY pkPersonID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#Person_json",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"PersonCreditCard PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[PersonCreditCard]' TableName, count(*) [# rows] FROM [bi].[PersonCreditCard] ",
+		   "DestinationScript":"SELECT '[STG].[PersonCreditCard]' as TableName, count(*) [# rows] FROM [STG].[PersonCreditCard] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#PersonCreditCard",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"PersonCreditCard PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[PersonCreditCard] ORDER BY cast(pkBusinessEntityID as nvarchar(20)) +'-'+ cast(pkCreditCardID as nvarchar(20)) +'-'",
+		   "DestinationScript":"SELECT * FROM [STG].[PersonCreditCard] ORDER BY cast(pkBusinessEntityID as nvarchar(20)) +'-'+ cast(pkCreditCardID as nvarchar(20)) +'-'",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#PersonCreditCard",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"PersonPhone PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[PersonPhone]' TableName, count(*) [# rows] FROM [bi].[PersonPhone] ",
+		   "DestinationScript":"SELECT '[STG].[PersonPhone]' as TableName, count(*) [# rows] FROM [STG].[PersonPhone] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#PersonPhone",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"PersonPhone PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[PersonPhone] ORDER BY cast(pkBusinessEntityID as nvarchar(20)) +'-'+ cast(pkPhoneNumber as nvarchar(20)) +'-'+ cast(pkPhoneNumberTypeID as nvarchar(20)) +'-'",
+		   "DestinationScript":"SELECT * FROM [STG].[PersonPhone] ORDER BY cast(pkBusinessEntityID as nvarchar(20)) +'-'+ cast(pkPhoneNumber as nvarchar(20)) +'-'+ cast(pkPhoneNumberTypeID as nvarchar(20)) +'-'",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#PersonPhone",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"PhoneNumberType PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[PhoneNumberType]' TableName, count(*) [# rows] FROM [bi].[PhoneNumberType] ",
+		   "DestinationScript":"SELECT '[STG].[PhoneNumberType]' as TableName, count(*) [# rows] FROM [STG].[PhoneNumberType] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#PhoneNumberType",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"PhoneNumberType PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[PhoneNumberType] ORDER BY pkPhoneNumberTypeID",
+		   "DestinationScript":"SELECT * FROM [STG].[PhoneNumberType] ORDER BY pkPhoneNumberTypeID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#PhoneNumberType",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  	  
+		{     
+		   "TestName":"Product PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[Product]' TableName, count(*) [# rows] FROM [bi].[Product] ",
+		   "DestinationScript":"SELECT '[STG].[Product]' as TableName, count(*) [# rows] FROM [STG].[Product] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#Product",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"Product PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[Product] ORDER BY pkProductID",
+		   "DestinationScript":"SELECT * FROM [STG].[Product] ORDER BY pkProductID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#Product",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"Product_ondisk PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[Product_ondisk]' TableName, count(*) [# rows] FROM [bi].[Product_ondisk] ",
+		   "DestinationScript":"SELECT '[STG].[Product_ondisk]' as TableName, count(*) [# rows] FROM [STG].[Product_ondisk] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#Product_ondisk",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"Product_ondisk PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[Product_ondisk] ORDER BY pkProductID",
+		   "DestinationScript":"SELECT * FROM [STG].[Product_ondisk] ORDER BY pkProductID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#Product_ondisk",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"ProductCategory PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[ProductCategory]' TableName, count(*) [# rows] FROM [bi].[ProductCategory] ",
+		   "DestinationScript":"SELECT '[STG].[ProductCategory]' as TableName, count(*) [# rows] FROM [STG].[ProductCategory] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#ProductCategory",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"ProductCategory PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[ProductCategory] ORDER BY pkProductCategoryID",
+		   "DestinationScript":"SELECT * FROM [STG].[ProductCategory] ORDER BY pkProductCategoryID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#ProductCategory",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"ProductCostHistory PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[ProductCostHistory]' TableName, count(*) [# rows] FROM [bi].[ProductCostHistory] ",
+		   "DestinationScript":"SELECT '[STG].[ProductCostHistory]' as TableName, count(*) [# rows] FROM [STG].[ProductCostHistory] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#ProductCostHistory",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"ProductCostHistory PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[ProductCostHistory] ORDER BY cast(pkProductID as nvarchar(20)) +'-'+ cast(pkStartDate as nvarchar(20)) +'-'",
+		   "DestinationScript":"SELECT * FROM [STG].[ProductCostHistory] ORDER BY cast(pkProductID as nvarchar(20)) +'-'+ cast(pkStartDate as nvarchar(20)) +'-'",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#ProductCostHistory",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"ProductDescription PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[ProductDescription]' TableName, count(*) [# rows] FROM [bi].[ProductDescription] ",
+		   "DestinationScript":"SELECT '[STG].[ProductDescription]' as TableName, count(*) [# rows] FROM [STG].[ProductDescription] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#ProductDescription",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"ProductDescription PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[ProductDescription] ORDER BY pkProductDescriptionID",
+		   "DestinationScript":"SELECT * FROM [STG].[ProductDescription] ORDER BY pkProductDescriptionID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#ProductDescription",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"ProductInventory PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[ProductInventory]' TableName, count(*) [# rows] FROM [bi].[ProductInventory] ",
+		   "DestinationScript":"SELECT '[STG].[ProductInventory]' as TableName, count(*) [# rows] FROM [STG].[ProductInventory] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#ProductInventory",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"ProductInventory PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[ProductInventory] ORDER BY cast(pkLocationID as nvarchar(20)) +'-'+ cast(pkProductID as nvarchar(20)) +'-'",
+		   "DestinationScript":"SELECT * FROM [STG].[ProductInventory] ORDER BY cast(pkLocationID as nvarchar(20)) +'-'+ cast(pkProductID as nvarchar(20)) +'-'",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#ProductInventory",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"ProductListPriceHistory PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[ProductListPriceHistory]' TableName, count(*) [# rows] FROM [bi].[ProductListPriceHistory] ",
+		   "DestinationScript":"SELECT '[STG].[ProductListPriceHistory]' as TableName, count(*) [# rows] FROM [STG].[ProductListPriceHistory] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#ProductListPriceHistory",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"ProductListPriceHistory PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[ProductListPriceHistory] ORDER BY cast(pkProductID as nvarchar(20)) +'-'+ cast(pkStartDate as nvarchar(20)) +'-'",
+		   "DestinationScript":"SELECT * FROM [STG].[ProductListPriceHistory] ORDER BY cast(pkProductID as nvarchar(20)) +'-'+ cast(pkStartDate as nvarchar(20)) +'-'",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#ProductListPriceHistory",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"ProductModel PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[ProductModel]' TableName, count(*) [# rows] FROM [bi].[ProductModel] ",
+		   "DestinationScript":"SELECT '[STG].[ProductModel]' as TableName, count(*) [# rows] FROM [STG].[ProductModel] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#ProductModel",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"ProductModel PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[ProductModel] ORDER BY pkProductModelID",
+		   "DestinationScript":"SELECT * FROM [STG].[ProductModel] ORDER BY pkProductModelID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#ProductModel",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"ProductModelIllustration PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[ProductModelIllustration]' TableName, count(*) [# rows] FROM [bi].[ProductModelIllustration] ",
+		   "DestinationScript":"SELECT '[STG].[ProductModelIllustration]' as TableName, count(*) [# rows] FROM [STG].[ProductModelIllustration] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#ProductModelIllustration",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"ProductModelIllustration PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[ProductModelIllustration] ORDER BY cast(pkIllustrationID as nvarchar(20)) +'-'+ cast(pkProductModelID as nvarchar(20)) +'-'",
+		   "DestinationScript":"SELECT * FROM [STG].[ProductModelIllustration] ORDER BY cast(pkIllustrationID as nvarchar(20)) +'-'+ cast(pkProductModelID as nvarchar(20)) +'-'",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#ProductModelIllustration",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"ProductModelProductDescriptionCulture PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[ProductModelProductDescriptionCulture]' TableName, count(*) [# rows] FROM [bi].[ProductModelProductDescriptionCulture] ",
+		   "DestinationScript":"SELECT '[STG].[ProductModelProductDescriptionCulture]' as TableName, count(*) [# rows] FROM [STG].[ProductModelProductDescriptionCulture] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#ProductModelProductDescriptionCulture",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"ProductModelProductDescriptionCulture PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[ProductModelProductDescriptionCulture] ORDER BY cast(pkCultureID as nvarchar(20)) +'-'+ cast(pkProductDescriptionID as nvarchar(20)) +'-'+ cast(pkProductModelID as nvarchar(20)) +'-'",
+		   "DestinationScript":"SELECT * FROM [STG].[ProductModelProductDescriptionCulture] ORDER BY cast(pkCultureID as nvarchar(20)) +'-'+ cast(pkProductDescriptionID as nvarchar(20)) +'-'+ cast(pkProductModelID as nvarchar(20)) +'-'",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#ProductModelProductDescriptionCulture",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"ProductPhoto PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[ProductPhoto]' TableName, count(*) [# rows] FROM [bi].[ProductPhoto] ",
+		   "DestinationScript":"SELECT '[STG].[ProductPhoto]' as TableName, count(*) [# rows] FROM [STG].[ProductPhoto] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#ProductPhoto",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"ProductPhoto PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[ProductPhoto] ORDER BY pkProductPhotoID",
+		   "DestinationScript":"SELECT * FROM [STG].[ProductPhoto] ORDER BY pkProductPhotoID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#ProductPhoto",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"ProductProductPhoto PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[ProductProductPhoto]' TableName, count(*) [# rows] FROM [bi].[ProductProductPhoto] ",
+		   "DestinationScript":"SELECT '[STG].[ProductProductPhoto]' as TableName, count(*) [# rows] FROM [STG].[ProductProductPhoto] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#ProductProductPhoto",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"ProductProductPhoto PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[ProductProductPhoto] ORDER BY cast(pkProductID as nvarchar(20)) +'-'+ cast(pkProductPhotoID as nvarchar(20)) +'-'",
+		   "DestinationScript":"SELECT * FROM [STG].[ProductProductPhoto] ORDER BY cast(pkProductID as nvarchar(20)) +'-'+ cast(pkProductPhotoID as nvarchar(20)) +'-'",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#ProductProductPhoto",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"ProductReview PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[ProductReview]' TableName, count(*) [# rows] FROM [bi].[ProductReview] ",
+		   "DestinationScript":"SELECT '[STG].[ProductReview]' as TableName, count(*) [# rows] FROM [STG].[ProductReview] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#ProductReview",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"ProductReview PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[ProductReview] ORDER BY pkProductReviewID",
+		   "DestinationScript":"SELECT * FROM [STG].[ProductReview] ORDER BY pkProductReviewID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#ProductReview",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"ProductSubcategory PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[ProductSubcategory]' TableName, count(*) [# rows] FROM [bi].[ProductSubcategory] ",
+		   "DestinationScript":"SELECT '[STG].[ProductSubcategory]' as TableName, count(*) [# rows] FROM [STG].[ProductSubcategory] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#ProductSubcategory",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"ProductSubcategory PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[ProductSubcategory] ORDER BY pkProductSubcategoryID",
+		   "DestinationScript":"SELECT * FROM [STG].[ProductSubcategory] ORDER BY pkProductSubcategoryID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#ProductSubcategory",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"ProductVendor PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[ProductVendor]' TableName, count(*) [# rows] FROM [bi].[ProductVendor] ",
+		   "DestinationScript":"SELECT '[STG].[ProductVendor]' as TableName, count(*) [# rows] FROM [STG].[ProductVendor] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#ProductVendor",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"ProductVendor PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[ProductVendor] ORDER BY cast(pkBusinessEntityID as nvarchar(20)) +'-'+ cast(pkProductID as nvarchar(20)) +'-'",
+		   "DestinationScript":"SELECT * FROM [STG].[ProductVendor] ORDER BY cast(pkBusinessEntityID as nvarchar(20)) +'-'+ cast(pkProductID as nvarchar(20)) +'-'",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#ProductVendor",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"pruebapksen PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[pruebapksen]' TableName, count(*) [# rows] FROM [bi].[pruebapksen] ",
+		   "DestinationScript":"SELECT '[STG].[pruebapksen]' as TableName, count(*) [# rows] FROM [STG].[pruebapksen] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#pruebapksen",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"pruebapksen PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[pruebapksen] ORDER BY cast(pkcampoa as nvarchar(20)) +'-'+ cast(pkcampob as nvarchar(20)) +'-'+ cast(pkcampoc as nvarchar(20)) +'-'",
+		   "DestinationScript":"SELECT * FROM [STG].[pruebapksen] ORDER BY cast(pkcampoa as nvarchar(20)) +'-'+ cast(pkcampob as nvarchar(20)) +'-'+ cast(pkcampoc as nvarchar(20)) +'-'",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#pruebapksen",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"PurchaseOrderDetail PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[PurchaseOrderDetail]' TableName, count(*) [# rows] FROM [bi].[PurchaseOrderDetail] ",
+		   "DestinationScript":"SELECT '[STG].[PurchaseOrderDetail]' as TableName, count(*) [# rows] FROM [STG].[PurchaseOrderDetail] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#PurchaseOrderDetail",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"PurchaseOrderDetail PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[PurchaseOrderDetail] ORDER BY cast(pkPurchaseOrderDetailID as nvarchar(20)) +'-'+ cast(pkPurchaseOrderID as nvarchar(20)) +'-'",
+		   "DestinationScript":"SELECT * FROM [STG].[PurchaseOrderDetail] ORDER BY cast(pkPurchaseOrderDetailID as nvarchar(20)) +'-'+ cast(pkPurchaseOrderID as nvarchar(20)) +'-'",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#PurchaseOrderDetail",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"PurchaseOrderHeader PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[PurchaseOrderHeader]' TableName, count(*) [# rows] FROM [bi].[PurchaseOrderHeader] ",
+		   "DestinationScript":"SELECT '[STG].[PurchaseOrderHeader]' as TableName, count(*) [# rows] FROM [STG].[PurchaseOrderHeader] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#PurchaseOrderHeader",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"PurchaseOrderHeader PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[PurchaseOrderHeader] ORDER BY pkPurchaseOrderID",
+		   "DestinationScript":"SELECT * FROM [STG].[PurchaseOrderHeader] ORDER BY pkPurchaseOrderID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#PurchaseOrderHeader",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"SalesOrder_json PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[SalesOrder_json]' TableName, count(*) [# rows] FROM [bi].[SalesOrder_json] ",
+		   "DestinationScript":"SELECT '[STG].[SalesOrder_json]' as TableName, count(*) [# rows] FROM [STG].[SalesOrder_json] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#SalesOrder_json",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"SalesOrder_json PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[SalesOrder_json] ORDER BY pkSalesOrderID",
+		   "DestinationScript":"SELECT * FROM [STG].[SalesOrder_json] ORDER BY pkSalesOrderID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#SalesOrder_json",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  	  
+		{     
+		   "TestName":"SalesOrderDetail PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[SalesOrderDetail]' TableName, count(*) [# rows] FROM [bi].[SalesOrderDetail] ",
+		   "DestinationScript":"SELECT '[STG].[SalesOrderDetail]' as TableName, count(*) [# rows] FROM [STG].[SalesOrderDetail] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#SalesOrderDetail",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"SalesOrderDetail PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[SalesOrderDetail] ORDER BY cast(pkSalesOrderDetailID as nvarchar(20)) +'-'+ cast(pkSalesOrderID as nvarchar(20)) +'-'",
+		   "DestinationScript":"SELECT * FROM [STG].[SalesOrderDetail] ORDER BY cast(pkSalesOrderDetailID as nvarchar(20)) +'-'+ cast(pkSalesOrderID as nvarchar(20)) +'-'",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#SalesOrderDetail",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"SalesOrderDetail_ondisk PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[SalesOrderDetail_ondisk]' TableName, count(*) [# rows] FROM [bi].[SalesOrderDetail_ondisk] ",
+		   "DestinationScript":"SELECT '[STG].[SalesOrderDetail_ondisk]' as TableName, count(*) [# rows] FROM [STG].[SalesOrderDetail_ondisk] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#SalesOrderDetail_ondisk",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"SalesOrderDetail_ondisk PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[SalesOrderDetail_ondisk] ORDER BY cast(pkSalesOrderDetailID as nvarchar(20)) +'-'+ cast(pkSalesOrderID as nvarchar(20)) +'-'",
+		   "DestinationScript":"SELECT * FROM [STG].[SalesOrderDetail_ondisk] ORDER BY cast(pkSalesOrderDetailID as nvarchar(20)) +'-'+ cast(pkSalesOrderID as nvarchar(20)) +'-'",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#SalesOrderDetail_ondisk",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"SalesOrderHeader PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[SalesOrderHeader]' TableName, count(*) [# rows] FROM [bi].[SalesOrderHeader] ",
+		   "DestinationScript":"SELECT '[STG].[SalesOrderHeader]' as TableName, count(*) [# rows] FROM [STG].[SalesOrderHeader] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#SalesOrderHeader",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"SalesOrderHeader PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[SalesOrderHeader] ORDER BY pkSalesOrderID",
+		   "DestinationScript":"SELECT * FROM [STG].[SalesOrderHeader] ORDER BY pkSalesOrderID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#SalesOrderHeader",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"SalesOrderHeader_ondisk PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[SalesOrderHeader_ondisk]' TableName, count(*) [# rows] FROM [bi].[SalesOrderHeader_ondisk] ",
+		   "DestinationScript":"SELECT '[STG].[SalesOrderHeader_ondisk]' as TableName, count(*) [# rows] FROM [STG].[SalesOrderHeader_ondisk] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#SalesOrderHeader_ondisk",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"SalesOrderHeader_ondisk PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[SalesOrderHeader_ondisk] ORDER BY pkSalesOrderID",
+		   "DestinationScript":"SELECT * FROM [STG].[SalesOrderHeader_ondisk] ORDER BY pkSalesOrderID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#SalesOrderHeader_ondisk",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"SalesOrderHeaderSalesReason PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[SalesOrderHeaderSalesReason]' TableName, count(*) [# rows] FROM [bi].[SalesOrderHeaderSalesReason] ",
+		   "DestinationScript":"SELECT '[STG].[SalesOrderHeaderSalesReason]' as TableName, count(*) [# rows] FROM [STG].[SalesOrderHeaderSalesReason] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#SalesOrderHeaderSalesReason",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"SalesOrderHeaderSalesReason PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[SalesOrderHeaderSalesReason] ORDER BY cast(pkSalesOrderID as nvarchar(20)) +'-'+ cast(pkSalesReasonID as nvarchar(20)) +'-'",
+		   "DestinationScript":"SELECT * FROM [STG].[SalesOrderHeaderSalesReason] ORDER BY cast(pkSalesOrderID as nvarchar(20)) +'-'+ cast(pkSalesReasonID as nvarchar(20)) +'-'",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#SalesOrderHeaderSalesReason",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"SalesPerson PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[SalesPerson]' TableName, count(*) [# rows] FROM [bi].[SalesPerson] ",
+		   "DestinationScript":"SELECT '[STG].[SalesPerson]' as TableName, count(*) [# rows] FROM [STG].[SalesPerson] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#SalesPerson",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"SalesPerson PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[SalesPerson] ORDER BY pkBusinessEntityID",
+		   "DestinationScript":"SELECT * FROM [STG].[SalesPerson] ORDER BY pkBusinessEntityID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#SalesPerson",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"SalesPersonQuotaHistory PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[SalesPersonQuotaHistory]' TableName, count(*) [# rows] FROM [bi].[SalesPersonQuotaHistory] ",
+		   "DestinationScript":"SELECT '[STG].[SalesPersonQuotaHistory]' as TableName, count(*) [# rows] FROM [STG].[SalesPersonQuotaHistory] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#SalesPersonQuotaHistory",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"SalesPersonQuotaHistory PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[SalesPersonQuotaHistory] ORDER BY cast(pkBusinessEntityID as nvarchar(20)) +'-'+ cast(pkQuotaDate as nvarchar(20)) +'-'",
+		   "DestinationScript":"SELECT * FROM [STG].[SalesPersonQuotaHistory] ORDER BY cast(pkBusinessEntityID as nvarchar(20)) +'-'+ cast(pkQuotaDate as nvarchar(20)) +'-'",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#SalesPersonQuotaHistory",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"SalesReason PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[SalesReason]' TableName, count(*) [# rows] FROM [bi].[SalesReason] ",
+		   "DestinationScript":"SELECT '[STG].[SalesReason]' as TableName, count(*) [# rows] FROM [STG].[SalesReason] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#SalesReason",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"SalesReason PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[SalesReason] ORDER BY pkSalesReasonID",
+		   "DestinationScript":"SELECT * FROM [STG].[SalesReason] ORDER BY pkSalesReasonID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#SalesReason",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"SalesTaxRate PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[SalesTaxRate]' TableName, count(*) [# rows] FROM [bi].[SalesTaxRate] ",
+		   "DestinationScript":"SELECT '[STG].[SalesTaxRate]' as TableName, count(*) [# rows] FROM [STG].[SalesTaxRate] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#SalesTaxRate",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"SalesTaxRate PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[SalesTaxRate] ORDER BY pkSalesTaxRateID",
+		   "DestinationScript":"SELECT * FROM [STG].[SalesTaxRate] ORDER BY pkSalesTaxRateID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#SalesTaxRate",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"SalesTerritory PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[SalesTerritory]' TableName, count(*) [# rows] FROM [bi].[SalesTerritory] ",
+		   "DestinationScript":"SELECT '[STG].[SalesTerritory]' as TableName, count(*) [# rows] FROM [STG].[SalesTerritory] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#SalesTerritory",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"SalesTerritory PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[SalesTerritory] ORDER BY pkTerritoryID",
+		   "DestinationScript":"SELECT * FROM [STG].[SalesTerritory] ORDER BY pkTerritoryID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#SalesTerritory",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"SalesTerritoryHistory PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[SalesTerritoryHistory]' TableName, count(*) [# rows] FROM [bi].[SalesTerritoryHistory] ",
+		   "DestinationScript":"SELECT '[STG].[SalesTerritoryHistory]' as TableName, count(*) [# rows] FROM [STG].[SalesTerritoryHistory] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#SalesTerritoryHistory",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"SalesTerritoryHistory PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[SalesTerritoryHistory] ORDER BY cast(pkBusinessEntityID as nvarchar(20)) +'-'+ cast(pkStartDate as nvarchar(20)) +'-'+ cast(pkTerritoryID as nvarchar(20)) +'-'",
+		   "DestinationScript":"SELECT * FROM [STG].[SalesTerritoryHistory] ORDER BY cast(pkBusinessEntityID as nvarchar(20)) +'-'+ cast(pkStartDate as nvarchar(20)) +'-'+ cast(pkTerritoryID as nvarchar(20)) +'-'",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#SalesTerritoryHistory",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"ScrapReason PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[ScrapReason]' TableName, count(*) [# rows] FROM [bi].[ScrapReason] ",
+		   "DestinationScript":"SELECT '[STG].[ScrapReason]' as TableName, count(*) [# rows] FROM [STG].[ScrapReason] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#ScrapReason",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"ScrapReason PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[ScrapReason] ORDER BY pkScrapReasonID",
+		   "DestinationScript":"SELECT * FROM [STG].[ScrapReason] ORDER BY pkScrapReasonID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#ScrapReason",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"Shift PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[Shift]' TableName, count(*) [# rows] FROM [bi].[Shift] ",
+		   "DestinationScript":"SELECT '[STG].[Shift]' as TableName, count(*) [# rows] FROM [STG].[Shift] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#Shift",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"Shift PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[Shift] ORDER BY pkShiftID",
+		   "DestinationScript":"SELECT * FROM [STG].[Shift] ORDER BY pkShiftID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#Shift",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"ShipMethod PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[ShipMethod]' TableName, count(*) [# rows] FROM [bi].[ShipMethod] ",
+		   "DestinationScript":"SELECT '[STG].[ShipMethod]' as TableName, count(*) [# rows] FROM [STG].[ShipMethod] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#ShipMethod",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"ShipMethod PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[ShipMethod] ORDER BY pkShipMethodID",
+		   "DestinationScript":"SELECT * FROM [STG].[ShipMethod] ORDER BY pkShipMethodID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#ShipMethod",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"ShoppingCartItem PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[ShoppingCartItem]' TableName, count(*) [# rows] FROM [bi].[ShoppingCartItem] ",
+		   "DestinationScript":"SELECT '[STG].[ShoppingCartItem]' as TableName, count(*) [# rows] FROM [STG].[ShoppingCartItem] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#ShoppingCartItem",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"ShoppingCartItem PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[ShoppingCartItem] ORDER BY pkShoppingCartItemID",
+		   "DestinationScript":"SELECT * FROM [STG].[ShoppingCartItem] ORDER BY pkShoppingCartItemID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#ShoppingCartItem",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"SoloPk PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[SoloPk]' TableName, count(*) [# rows] FROM [bi].[SoloPk] ",
+		   "DestinationScript":"SELECT '[STG].[SoloPk]' as TableName, count(*) [# rows] FROM [STG].[SoloPk] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#SoloPk",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"SoloPk PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[SoloPk] ORDER BY cast(id as nvarchar(20)) +'-'+ cast(idlinea as nvarchar(20)) +'-'",
+		   "DestinationScript":"SELECT * FROM [STG].[SoloPk] ORDER BY cast(id as nvarchar(20)) +'-'+ cast(idlinea as nvarchar(20)) +'-'",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#SoloPk",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"SpecialOffer PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[SpecialOffer]' TableName, count(*) [# rows] FROM [bi].[SpecialOffer] ",
+		   "DestinationScript":"SELECT '[STG].[SpecialOffer]' as TableName, count(*) [# rows] FROM [STG].[SpecialOffer] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#SpecialOffer",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"SpecialOffer PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[SpecialOffer] ORDER BY pkSpecialOfferID",
+		   "DestinationScript":"SELECT * FROM [STG].[SpecialOffer] ORDER BY pkSpecialOfferID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#SpecialOffer",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"SpecialOffer_ondisk PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[SpecialOffer_ondisk]' TableName, count(*) [# rows] FROM [bi].[SpecialOffer_ondisk] ",
+		   "DestinationScript":"SELECT '[STG].[SpecialOffer_ondisk]' as TableName, count(*) [# rows] FROM [STG].[SpecialOffer_ondisk] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#SpecialOffer_ondisk",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"SpecialOffer_ondisk PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[SpecialOffer_ondisk] ORDER BY pkSpecialOfferID",
+		   "DestinationScript":"SELECT * FROM [STG].[SpecialOffer_ondisk] ORDER BY pkSpecialOfferID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#SpecialOffer_ondisk",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"SpecialOfferProduct PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[SpecialOfferProduct]' TableName, count(*) [# rows] FROM [bi].[SpecialOfferProduct] ",
+		   "DestinationScript":"SELECT '[STG].[SpecialOfferProduct]' as TableName, count(*) [# rows] FROM [STG].[SpecialOfferProduct] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#SpecialOfferProduct",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"SpecialOfferProduct PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[SpecialOfferProduct] ORDER BY cast(pkProductID as nvarchar(20)) +'-'+ cast(pkSpecialOfferID as nvarchar(20)) +'-'",
+		   "DestinationScript":"SELECT * FROM [STG].[SpecialOfferProduct] ORDER BY cast(pkProductID as nvarchar(20)) +'-'+ cast(pkSpecialOfferID as nvarchar(20)) +'-'",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#SpecialOfferProduct",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"SpecialOfferProduct_ondisk PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[SpecialOfferProduct_ondisk]' TableName, count(*) [# rows] FROM [bi].[SpecialOfferProduct_ondisk] ",
+		   "DestinationScript":"SELECT '[STG].[SpecialOfferProduct_ondisk]' as TableName, count(*) [# rows] FROM [STG].[SpecialOfferProduct_ondisk] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#SpecialOfferProduct_ondisk",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"SpecialOfferProduct_ondisk PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[SpecialOfferProduct_ondisk] ORDER BY cast(pkProductID as nvarchar(20)) +'-'+ cast(pkSpecialOfferID as nvarchar(20)) +'-'",
+		   "DestinationScript":"SELECT * FROM [STG].[SpecialOfferProduct_ondisk] ORDER BY cast(pkProductID as nvarchar(20)) +'-'+ cast(pkSpecialOfferID as nvarchar(20)) +'-'",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#SpecialOfferProduct_ondisk",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"StateProvince PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[StateProvince]' TableName, count(*) [# rows] FROM [bi].[StateProvince] ",
+		   "DestinationScript":"SELECT '[STG].[StateProvince]' as TableName, count(*) [# rows] FROM [STG].[StateProvince] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#StateProvince",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"StateProvince PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[StateProvince] ORDER BY pkStateProvinceID",
+		   "DestinationScript":"SELECT * FROM [STG].[StateProvince] ORDER BY pkStateProvinceID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#StateProvince",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"Store PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[Store]' TableName, count(*) [# rows] FROM [bi].[Store] ",
+		   "DestinationScript":"SELECT '[STG].[Store]' as TableName, count(*) [# rows] FROM [STG].[Store] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#Store",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"Store PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[Store] ORDER BY pkBusinessEntityID",
+		   "DestinationScript":"SELECT * FROM [STG].[Store] ORDER BY pkBusinessEntityID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#Store",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"TrackingEvent PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[TrackingEvent]' TableName, count(*) [# rows] FROM [bi].[TrackingEvent] ",
+		   "DestinationScript":"SELECT '[STG].[TrackingEvent]' as TableName, count(*) [# rows] FROM [STG].[TrackingEvent] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#TrackingEvent",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"TrackingEvent PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[TrackingEvent] ORDER BY pkTrackingEventID",
+		   "DestinationScript":"SELECT * FROM [STG].[TrackingEvent] ORDER BY pkTrackingEventID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#TrackingEvent",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"TransactionHistory PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[TransactionHistory]' TableName, count(*) [# rows] FROM [bi].[TransactionHistory] ",
+		   "DestinationScript":"SELECT '[STG].[TransactionHistory]' as TableName, count(*) [# rows] FROM [STG].[TransactionHistory] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#TransactionHistory",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"TransactionHistory PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[TransactionHistory] ORDER BY pkTransactionID",
+		   "DestinationScript":"SELECT * FROM [STG].[TransactionHistory] ORDER BY pkTransactionID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#TransactionHistory",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"TransactionHistoryArchive PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[TransactionHistoryArchive]' TableName, count(*) [# rows] FROM [bi].[TransactionHistoryArchive] ",
+		   "DestinationScript":"SELECT '[STG].[TransactionHistoryArchive]' as TableName, count(*) [# rows] FROM [STG].[TransactionHistoryArchive] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#TransactionHistoryArchive",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"TransactionHistoryArchive PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[TransactionHistoryArchive] ORDER BY pkTransactionID",
+		   "DestinationScript":"SELECT * FROM [STG].[TransactionHistoryArchive] ORDER BY pkTransactionID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#TransactionHistoryArchive",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"UnitMeasure PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[UnitMeasure]' TableName, count(*) [# rows] FROM [bi].[UnitMeasure] ",
+		   "DestinationScript":"SELECT '[STG].[UnitMeasure]' as TableName, count(*) [# rows] FROM [STG].[UnitMeasure] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#UnitMeasure",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"UnitMeasure PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[UnitMeasure] ORDER BY pkUnitMeasureCode",
+		   "DestinationScript":"SELECT * FROM [STG].[UnitMeasure] ORDER BY pkUnitMeasureCode",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#UnitMeasure",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"Vendor PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[Vendor]' TableName, count(*) [# rows] FROM [bi].[Vendor] ",
+		   "DestinationScript":"SELECT '[STG].[Vendor]' as TableName, count(*) [# rows] FROM [STG].[Vendor] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#Vendor",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"Vendor PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[Vendor] ORDER BY pkBusinessEntityID",
+		   "DestinationScript":"SELECT * FROM [STG].[Vendor] ORDER BY pkBusinessEntityID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#Vendor",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"WorkOrder PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[WorkOrder]' TableName, count(*) [# rows] FROM [bi].[WorkOrder] ",
+		   "DestinationScript":"SELECT '[STG].[WorkOrder]' as TableName, count(*) [# rows] FROM [STG].[WorkOrder] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#WorkOrder",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"WorkOrder PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[WorkOrder] ORDER BY pkWorkOrderID",
+		   "DestinationScript":"SELECT * FROM [STG].[WorkOrder] ORDER BY pkWorkOrderID",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#WorkOrder",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		  
+    	  
+		{     
+		   "TestName":"WorkOrderRouting PK  Count",
+		   "Category":"Unit Test",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT '[STG].[WorkOrderRouting]' TableName, count(*) [# rows] FROM [bi].[WorkOrderRouting] ",
+		   "DestinationScript":"SELECT '[STG].[WorkOrderRouting]' as TableName, count(*) [# rows] FROM [STG].[WorkOrderRouting] ",
+		   "TestType":"COUNT",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#WorkOrderRouting",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[
+		   
+		   {     
+		   "TestName":"WorkOrderRouting PK  Details",
+		   "Category":"Unit Test Dependent",
+		   "AbaFrameworkLogDbConnectionString":"$LOG$",
+		   "OnError":4,
+		   "OnSuccess":0,
+		   "ImplementationStates":1,
+		   "Source":"$HLP-1$",
+		   "CommandTimeOut":0,
+		   "Destination":"$STG-1$",
+		   "SourceScript":" SELECT  * FROM [bi].[WorkOrderRouting] ORDER BY cast(pkOperationSequence as nvarchar(20)) +'-'+ cast(pkProductID as nvarchar(20)) +'-'+ cast(pkWorkOrderID as nvarchar(20)) +'-'",
+		   "DestinationScript":"SELECT * FROM [STG].[WorkOrderRouting] ORDER BY cast(pkOperationSequence as nvarchar(20)) +'-'+ cast(pkProductID as nvarchar(20)) +'-'+ cast(pkWorkOrderID as nvarchar(20)) +'-'",
+		   "TestType":"Primary Key",
+		   "ToleranceMatrix":"",
+		   "ExternalReference":"1#bi#WorkOrderRouting",
+		   "PerformanceTarget":0,
+		   "CascadeParametersOnError":"False",
+		   "MaxDifferences":0,
+		   "DependentTests":[]
+		}
+		   ]
+		},
+	
+		{}
+]
+}

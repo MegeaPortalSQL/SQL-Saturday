@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<testSuite xmlns="http://NBi/TestSuite" name="{{Name}}">
+   <settings>
+     {% for connection in Connections -%} 
+      <reference name="{{connection.Name}}">
+         <connectionString>{{connection.connection_string}}</connectionString>
+      </reference>
+     {% endfor -%}
+   </settings>
+  
+  
+  {% for tables in extract_phase_info_objects -%}
+  <!-- Tests para la tabla {{tables.Destination_Table_Name}}     -->
+  {% for tests in tables.tests_extract_phase_info -%}
+
+  {% if tests.Test_Type_ID == 'PK ' %}
+  <test name="Source.Helper.{{tests.Test_Type_ID}}.{{tables.Destination_Table_Name}}.{{tables.Helper_Name}}.{{tables.Staging_Name}}" uid="1"  >
+  <category>{{tests.Test_Type_ID}}</category>
+  <system-under-test>
+    <execution>
+      <query connectionString="@{{tables.Helper_Name}}">
+        SELECT {{ tables.primary_key_columns_for_testing }} FROM [{{tables.Source_Object_schema}}].[{{tables.Source_Object_Name}}] {% if tests.Where_Condition  != blank %} WHERE {{tests.Where_Condition }} {% endif -%}
+      </query>
+    </execution>
+  </system-under-test>
+  <assert>
+    <equalTo>
+      <query connectionString="@{{tables.Staging_Name}}">
+        SELECT {{ tables.primary_key_columns_for_testing }} FROM [{{tables.Destination_table_schema}}].[{{tables.Destination_Table_Name}}] {% if tests.Where_Condition  != blank %} WHERE {{tests.Where_Condition }} {% endif -%}
+      </query>
+    </equalTo>
+  </assert>
+  </test>
+  {% endif -%}
+
+  {% if tests.Test_Type_ID == 'ERR' %}
+  <test name="Source.Helper.{{tests.Test_Type_ID}}.{{tables.Destination_Table_Name}}.{{tables.Helper_Name}}.{{tables.Staging_Name}}" uid="1"  >
+    <category>{{tests.Test_Type_ID}}</category>
+    <system-under-test>
+      <execution>
+        <query connectionString="@{{tables.Staging_Name}}">
+          SELECT count(*) FROM [{{tables.Destination_table_schema}}].[{{tests.Source_Object_Name}}$Errors]
+        </query>
+      </execution>
+    </system-under-test>
+    <assert>
+      <evaluate-rows>
+        <expression column-index="0" type="numeric" tolerance="0.0">=0</expression>
+      </evaluate-rows>
+    </assert>
+  </test>
+  {% endif -%}
+
+  {% if tests.Test_Type_ID == 'AGG' and tests.group_by_condition  != blank and tests.Aggregate_Condition !=  blank  %}
+  <test name="Source.Helper.{{tests.Test_Type_ID}}.{{tables.Destination_Table_Name}}.{{tables.Helper_Name}}.{{tables.Staging_Name}}" uid="1"  >
+    <category>{{tests.Test_Type_ID}}</category>
+    <system-under-test>
+      <execution>
+        <query connectionString="@{{tables.Helper_Name}}">
+          SELECT {{ tests.group_by_condition }},{{ tests.Aggregate_Condition }} FROM [{{tables.Source_Object_schema}}].[{{tables.Source_Object_Name}}] {% if tests.Where_Condition  != blank %} WHERE {{tests.Where_Condition }} {% endif -%} GROUP BY {{ tests.group_by_condition }}
+        </query>
+      </execution>
+    </system-under-test>
+    <assert>
+      <equalTo>
+        <query connectionString="@{{tables.Staging_Name}}">
+          SELECT {{ tests.group_by_condition }},{{ tests.Aggregate_Condition }} FROM [{{tables.Destination_table_schema}}].[{{tables.Destination_Table_Name}}] {% if tests.Where_Condition  != blank %} WHERE {{tests.Where_Condition }} {% endif -%} GROUP BY {{ tests.group_by_condition }}
+        </query>
+      </equalTo>
+    </assert>
+  </test>
+  {% endif -%}
+
+
+  {% endfor -%}
+  <!-- fin de Tests para la tabla {{tables.Destination_Table_Name}}     -->
+  {% endfor -%}
+
+</testSuite>
